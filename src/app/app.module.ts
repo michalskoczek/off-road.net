@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header/header.component';
+import { HeaderComponent } from './header/header.component';
 import { EventsComponent } from './events/events.component';
 import { EventListComponent } from './events/event-list/event-list.component';
 import { EventItemComponent } from './events/event-list/event-item/event-item.component';
@@ -17,12 +17,10 @@ import { EventListEditComponent } from './events/event-list/event-list-edit/even
     EventListComponent,
     EventItemComponent,
     EventDetailComponent,
-    EventListEditComponent
+    EventListEditComponent,
   ],
-  imports: [
-    BrowserModule
-  ],
+  imports: [BrowserModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
