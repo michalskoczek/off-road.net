@@ -1,1 +1,29 @@
-<p>event-list works!</p>
+<div class="row">
+  <div class="col-md-12">
+    <button class="btn btn-success">Nowe wydarzenie</button>
+  </div>
+</div>
+<hr />
+<div class="row">
+  <div class="col-md-12">
+    <a
+      *ngFor="let event of events"
+      href="#"
+      class="d-flex justify-content-between"
+    >
+      <div>
+        <h4>{{ event.name }}</h4>
+        <p>{{ event.description }}</p>
+      </div>
+
+      <div>
+        <img
+          [src]="event.imagePath"
+          [alt]="event.name"
+          class="img-responsive"
+          style="max-height: 50px"
+        />
+      </div>
+    </a>
+  </div>
+</div>
