@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 import { Event } from '../../../shared/event.model';
 
@@ -9,7 +9,13 @@ import { Event } from '../../../shared/event.model';
 })
 export class EventItemComponent implements OnInit {
   @Input() eventItem: Event;
+  @Output() featureSelected = new EventEmitter<void>();
+
   constructor() {}
 
   ngOnInit(): void {}
+
+  onSelected() {
+    this.featureSelected.emit();
+  }
 }
