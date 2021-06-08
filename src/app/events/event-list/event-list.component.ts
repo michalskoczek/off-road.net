@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 import { Event } from '../../shared/event.model';
 
@@ -8,6 +8,7 @@ import { Event } from '../../shared/event.model';
   styleUrls: ['./event-list.component.css'],
 })
 export class EventListComponent implements OnInit {
+  @Output() eventWasSelected = new EventEmitter<Event>();
   events: Event[] = [
     new Event(
       'Wydarzenie 1',
@@ -29,4 +30,8 @@ export class EventListComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  onEventSelected(event: Event) {
+    this.eventWasSelected.emit(event);
+  }
 }

@@ -10,6 +10,7 @@
     <app-event-item
       *ngFor="let event of events"
       [eventItem]="event"
+      (featureSelected)="onEventSelected(event)"
     ></app-event-item>
   </div>
 </div>
