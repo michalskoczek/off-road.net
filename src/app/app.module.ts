@@ -8,6 +8,12 @@ import { EventListComponent } from './events/event-list/event-list.component';
 import { EventItemComponent } from './events/event-list/event-item/event-item.component';
 import { EventDetailComponent } from './events/event-detail/event-detail.component';
 import { EventListEditComponent } from './events/event-list/event-list-edit/event-list-edit.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { AutoServicingsComponent } from './auto-servicings/auto-servicings.component';
+import { AutoServicesComponent } from './auto-services/auto-services.component';
+import { StoresComponent } from './stores/stores.component';
+import { BlogsComponent } from './blogs/blogs.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +24,12 @@ import { EventListEditComponent } from './events/event-list/event-list-edit/even
     EventItemComponent,
     EventDetailComponent,
     EventListEditComponent,
+    HomepageComponent,
+    CalendarComponent,
+    AutoServicingsComponent,
+    AutoServicesComponent,
+    StoresComponent,
+    BlogsComponent,
   ],
   imports: [BrowserModule],
   providers: [],
