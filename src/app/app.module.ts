@@ -7,6 +7,7 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { AutoServicesComponent } from './auto-services/auto-services.component';
 import { StoresComponent } from './stores/stores.component';
 import { BlogsComponent } from './blogs/blogs.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { BlogsComponent } from './blogs/blogs.component';
     StoresComponent,
     BlogsComponent,
   ],
-  imports: [BrowserModule],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
