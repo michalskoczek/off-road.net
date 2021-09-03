@@ -1,0 +1,58 @@
+.header-clickable {
+  cursor: pointer;
+}
+
+.header-title {
+  font-size: 32px;
+  font-family: "Permanent Marker", cursive;
+  color: #000;
+}
+
+.header-subtitle {
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  color: #777;
+  text-align: center;
+}
+
+.link-name {
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 0.7px;
+  color: #000 !important;
+}
+
+@media (min-width: 768px) {
+  .header-title {
+    font-size: 40px;
+  }
+
+  .header-subtitle {
+    font-size: 16px;
+  }
+
+  .nav-container-ul {
+    width: 100%;
+    justify-content: space-evenly;
+  }
+
+  .link-name {
+    font-size: 22px;
+    letter-spacing: 1px;
+    border-bottom: 2px solid transparent;
+  }
+
+  .link-name:hover {
+    border-color: rgba(216, 98, 98, 0.89);
+  }
+}
+
+@media (min-width: 1400px) {
+  .header-title {
+    font-size: 48px;
+  }
+
+  .header-subtitle {
+    font-size: 18px;
+  }
+}
