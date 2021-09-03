@@ -86,6 +86,7 @@
     text-align: right;
     text-transform: capitalize;
     vertical-align: bottom;
+    color: #000;
   }
 
   .block:hover {
