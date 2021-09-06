@@ -4,6 +4,11 @@ import { CalendarComponent } from './calendar/calendar.component';
 
 const appRoutes: Routes = [
   {
+    path: '',
+    redirectTo: '/calendar',
+    pathMatch: 'full',
+  },
+  {
     path: 'calendar',
     component: CalendarComponent,
   },
