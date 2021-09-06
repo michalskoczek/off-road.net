@@ -1,3 +1,7 @@
+.navbar .navbar-paddings {
+  padding: 0 10px !important;
+}
+
 .header-clickable {
   cursor: pointer;
 }
@@ -43,7 +47,15 @@
   }
 
   .link-name:hover {
+    border-color: rgba(52, 225, 40, 0.51);
+  }
+
+  .nav-item:nth-child(2) .link-name:hover {
     border-color: rgba(216, 98, 98, 0.89);
+  }
+
+  .nav-item:nth-child(3) .link-name:hover {
+    border-color: rgba(4, 108, 154, 0.57);
   }
 }
 
