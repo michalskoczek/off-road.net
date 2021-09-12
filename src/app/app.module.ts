@@ -9,6 +9,8 @@ import { StoresComponent } from './stores/stores.component';
 import { BlogsComponent } from './blogs/blogs.component';
 import { OptionsPanelComponent } from './options-panel/options-panel.component';
 import { AppRoutingModule } from './app-routing.module';
+import { CalendarCreateEventComponent } from './calendar/calendar-create-event/calendar-create-event.component';
+import { CalendarListComponent } from './calendar/calendar-list/calendar-list.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { AppRoutingModule } from './app-routing.module';
     StoresComponent,
     BlogsComponent,
     OptionsPanelComponent,
+    CalendarCreateEventComponent,
+    CalendarListComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
