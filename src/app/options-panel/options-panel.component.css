@@ -1,10 +1,14 @@
+.options-panel {
+  box-shadow: 0 -5px 3px -3px #777, 0 5px 3px -3px #777;
+}
+
 .options-panel__options-container {
   display: flex;
   justify-content: space-evenly;
   padding: 15px 0;
 }
 
-.options-panel-option {
+.options-panel__option {
   position: relative;
   font-size: 16px;
   list-style: none;
@@ -15,7 +19,7 @@
   background-color: transparent;
 }
 
-.options-panel-option::after {
+.options-panel__option::after {
   position: absolute;
   content: "";
   left: 5px;
@@ -28,8 +32,44 @@
   background-color: transparent;
 }
 
+.options-panel__button {
+  display: none;
+}
+
 @media (min-width: 768px) {
-  .options-panel__options-container {
+  .options-panel {
+    display: flex;
+    justify-content: space-between;
     box-shadow: 0 -5px 3px -3px #777, 0 5px 3px -3px #777;
+  }
+
+  .options-panel__options-container {
+    max-width: 50%;
+    margin: 0 35px 0 0;
+  }
+
+  .options-panel__option {
+    margin: auto 15px;
+  }
+
+  .options-panel__button {
+    display: block;
+    height: 30px;
+    margin: auto 0 auto 35px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .options-panel__options-container {
+    margin: 0 50px 0 0;
+  }
+
+  .options-panel__option {
+    margin: auto 25px;
+  }
+
+  .options-panel__button {
+    height: 30px;
+    margin: auto 0 auto 50px;
   }
 }
