@@ -1,6 +1,9 @@
 <div class="options-panel">
+  <button class="options-panel__option options-panel__button">
+    {{ button }}
+  </button>
   <ul class="options-panel__options-container">
-    <li *ngFor="let option of options" class="options-panel-option">
+    <li *ngFor="let option of options" class="options-panel__option">
       {{ option }}
     </li>
   </ul>
