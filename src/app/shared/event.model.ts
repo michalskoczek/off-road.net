@@ -1,11 +1,10 @@
 export class Event {
-  public name: string;
-  public description: string;
-  public imagePath: string;
-
-  constructor(name: string, desc: string, imagePath: string) {
-    this.name = name;
-    this.description = desc;
-    this.imagePath = imagePath;
-  }
+  constructor(
+    public name: string,
+    public location: string,
+    public organizer: string,
+    public type: string,
+    public date: string,
+    public day: string,
+  ) {}
 }
