@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Event } from '../shared/event.model';
 
 @Component({
   selector: 'app-calendar',
