@@ -1,1 +1,12 @@
-<p>calendar-list works!</p>
+<div class="row calendar-event">
+  <div class="col-md-1 calendar-term">
+    <p class="calendar-date">{{ event.date }}</p>
+    <p class="calendar-day">{{ event.day }}</p>
+  </div>
+  <a class="col-md-10 calendar-details">
+    <p class="calendar-name">{{ event.name }}</p>
+    <p class="calendar-localization">{{ event.location }}</p>
+    <p class="calendar-organizer">{{ event.organizer }}</p>
+    <p class="calendar-type">{{ event.type }}</p>
+  </a>
+</div>
