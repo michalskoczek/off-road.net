@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OptionsPanelComponent implements OnInit {
   options: string[] = ['rajdy', 'wyprawy', 'turystyka', 'wyścigi'];
-  button: string = 'Nowe wydarzenie';
+  buttons: string[] = ['Nowe wydarzenie', 'Lista wydarzeń'];
 
   constructor() {}
 

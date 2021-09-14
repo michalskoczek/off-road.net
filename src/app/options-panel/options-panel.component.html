@@ -1,7 +1,19 @@
 <div class="options-panel">
-  <button class="options-panel__option options-panel__button">
-    {{ button }}
-  </button>
+  <div class="options-panel__buttons">
+    <button
+      class="options-panel__option options-panel__button"
+      routerLink="create-event"
+    >
+      {{ buttons[0] }}
+    </button>
+    <button
+      class="options-panel__option options-panel__button"
+      routerLink="calendar-list"
+    >
+      {{ buttons[1] }}
+    </button>
+  </div>
+
   <ul class="options-panel__options-container">
     <li *ngFor="let option of options" class="options-panel__option">
       {{ option }}
