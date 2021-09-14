@@ -11,6 +11,7 @@ import { OptionsPanelComponent } from './options-panel/options-panel.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CalendarCreateEventComponent } from './calendar/calendar-create-event/calendar-create-event.component';
 import { CalendarListComponent } from './calendar/calendar-list/calendar-list.component';
+import { CalendarEventComponent } from './calendar/calendar-event/calendar-event.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { CalendarListComponent } from './calendar/calendar-list/calendar-list.co
     OptionsPanelComponent,
     CalendarCreateEventComponent,
     CalendarListComponent,
+    CalendarEventComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
