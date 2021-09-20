@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { OptionsPanelService } from './options.service';
 
 @Component({
@@ -11,10 +12,18 @@ export class OptionsPanelComponent implements OnInit {
   options: string[];
   buttons: { routeName: string; buttonsName: string[] }[];
 
-  constructor(private optionsService: OptionsPanelService) {}
+  constructor(
+    private optionsService: OptionsPanelService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.options = this.optionsService.getOptions();
     this.buttons = this.optionsService.getButtons();
+  }
+
+  onMoveToCreateEvent() {
+    this.router.navigate(['create-event'], { relativeTo: this.activatedRoute });
   }
 }

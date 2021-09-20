@@ -17,7 +17,7 @@ const appRoutes: Routes = [
     component: CalendarComponent,
     children: [
       {
-        path: 'calendar-list',
+        path: '',
         component: CalendarListComponent,
       },
       {

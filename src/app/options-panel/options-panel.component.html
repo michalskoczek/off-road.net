@@ -2,14 +2,11 @@
   <div class="options-panel__buttons">
     <button
       class="options-panel__option options-panel__button"
-      routerLink="create-event"
+      (click)="onMoveToCreateEvent()"
     >
       {{ buttons[0].buttonsName[0] }}
     </button>
-    <button
-      class="options-panel__option options-panel__button"
-      routerLink="calendar-list"
-    >
+    <button class="options-panel__option options-panel__button" routerLink="./">
       {{ buttons[0].buttonsName[1] }}
     </button>
   </div>
