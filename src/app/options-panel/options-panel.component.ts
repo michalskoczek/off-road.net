@@ -9,11 +9,12 @@ import { OptionsPanelService } from './options.service';
 })
 export class OptionsPanelComponent implements OnInit {
   options: string[];
-  buttons: string[] = ['Nowe wydarzenie', 'Lista wydarzeń'];
+  buttons: { routeName: string; buttonsName: string[] }[];
 
   constructor(private optionsService: OptionsPanelService) {}
 
   ngOnInit(): void {
     this.options = this.optionsService.getOptions();
+    this.buttons = this.optionsService.getButtons();
   }
 }
