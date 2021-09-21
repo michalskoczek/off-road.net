@@ -22,7 +22,7 @@ const appRoutes: Routes = [
         component: CalendarListComponent,
       },
       {
-        path: 'event',
+        path: 'event/:id',
         component: CalendarEventComponent,
       },
       {

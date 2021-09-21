@@ -10,7 +10,8 @@ import { OptionsPanelService } from './options.service';
 })
 export class OptionsPanelComponent implements OnInit {
   options: string[];
-  buttons: { routeName: string; buttonsName: string[] }[];
+  buttons: string[];
+  path: string[];
 
   constructor(
     private optionsService: OptionsPanelService,
@@ -19,8 +20,11 @@ export class OptionsPanelComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.options = this.optionsService.getOptions();
-    this.buttons = this.optionsService.getButtons();
+    this.activatedRoute.url.subscribe(() => {
+      this.path = this.router.url.split('/').slice(1, 3);
+      this.options = this.optionsService.getOptions(this.path);
+      this.buttons = this.optionsService.getButtons(this.path);
+    });
   }
 
   onMoveToCreateEvent() {
