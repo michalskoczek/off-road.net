@@ -5,6 +5,7 @@ import { CalendarEventComponent } from './calendar/calendar-event/calendar-event
 import { CalendarListComponent } from './calendar/calendar-list/calendar-list.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
   {
@@ -21,14 +22,23 @@ const appRoutes: Routes = [
         component: CalendarListComponent,
       },
       {
-        path: 'event',
+        path: 'event/:id',
         component: CalendarEventComponent,
       },
       {
         path: 'create-event',
         component: CalendarCreateEventComponent,
       },
+      {
+        path: '**',
+        redirectTo: '../**',
+      },
     ],
+  },
+  {
+    path: '**',
+    component: PageNotFoundComponent,
+    data: { errorMessage: 'Page not found!' },
   },
 ];
 

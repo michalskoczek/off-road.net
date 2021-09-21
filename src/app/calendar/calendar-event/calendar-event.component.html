@@ -2,13 +2,12 @@
   <div class="col-md-7">
     <div class="row">
       <div class="col-md-11 event-header">
-        <button class="back-to-list" routerLink="../">wstecz</button>
-        <h3>Tytuł</h3>
+        <button class="back-to-list" routerLink="/calendar">wstecz</button>
+        <h3>{{ event.name }}</h3>
       </div>
     </div>
     <div class="row event-details">
       <div class="col-md-2">
-        <p>Nazwa</p>
         <p>Miejsce</p>
         <p>Termin</p>
         <p>Typ</p>
@@ -17,13 +16,12 @@
         <p>Opis</p>
       </div>
       <div class="col-md-9">
-        <p>Nazwa</p>
-        <p>Miejsce</p>
-        <p>Termin</p>
-        <p>Typ</p>
-        <p>Organizator</p>
-        <p>Koszt</p>
-        <p>Opis</p>
+        <p>{{ event.location }}</p>
+        <p>{{ event.date }}</p>
+        <p>{{ event.type }}</p>
+        <p>{{ event.organizer }}</p>
+        <p>{{ event.cost }}</p>
+        <p>{{ event.description }}</p>
       </div>
     </div>
   </div>
