@@ -12,7 +12,6 @@ export class PageNotFoundComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
-    // this.errorMessage = this.activatedRoute.snapshot.data['errorMessage'];
     this.activatedRoute.data.subscribe((data: Data) => {
       this.errorMessage = data['errorMessage'];
     });
