@@ -1,4 +1,4 @@
-enum Options {
+export enum Options {
   Calendar,
-  CalendaeEvent,
+  CalendarEvent,
 }
