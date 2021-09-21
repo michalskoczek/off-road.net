@@ -13,6 +13,7 @@ import { CalendarCreateEventComponent } from './calendar/calendar-create-event/c
 import { CalendarListComponent } from './calendar/calendar-list/calendar-list.component';
 import { CalendarEventComponent } from './calendar/calendar-event/calendar-event.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { HomepageComponent } from './homepage/homepage.component';
     CalendarListComponent,
     CalendarEventComponent,
     HomepageComponent,
+    PageNotFoundComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
