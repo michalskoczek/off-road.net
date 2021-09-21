@@ -10,7 +10,8 @@ import { OptionsPanelService } from './options.service';
 })
 export class OptionsPanelComponent implements OnInit {
   options: string[];
-  buttons: { routeName: string; buttonsName: string[] }[];
+  buttons: string[];
+  path: string[];
 
   constructor(
     private optionsService: OptionsPanelService,
