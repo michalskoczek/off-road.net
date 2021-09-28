@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 import { OptionsPanelService } from '../options-panel/options.service';
 
@@ -6,17 +6,16 @@ import { OptionsPanelService } from '../options-panel/options.service';
   selector: 'app-options-panel-event',
   templateUrl: './options-panel-event.component.html',
   styleUrls: ['./options-panel-event.component.css'],
-  providers: [OptionsPanelService]
+  providers: [OptionsPanelService],
 })
 export class OptionsPanelEventComponent implements OnInit {
   buttons: string[];
   options: string[];
 
-  constructor(private optionsService: OptionsPanelService) { }
+  constructor(private optionsService: OptionsPanelService) {}
 
   ngOnInit(): void {
     this.buttons = this.optionsService.getButtonsCalendarEvent();
     this.options = this.optionsService.getOptionsCalendarEvent();
   }
-
 }

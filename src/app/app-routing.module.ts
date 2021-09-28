@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CalendarCreateEventComponent } from './calendar/calendar-create-event/calendar-create-event.component';
+import { CalendarEventFormComponent } from './calendar-event-form/calendar-event-form.component';
+import { CalendarEventDetailComponent } from './calendar/calendar-event/calendar-event-detail/calendar-event-detail.component';
 import { CalendarEventComponent } from './calendar/calendar-event/calendar-event.component';
 import { CalendarListComponent } from './calendar/calendar-list/calendar-list.component';
 import { CalendarComponent } from './calendar/calendar.component';
@@ -22,12 +23,22 @@ const appRoutes: Routes = [
         component: CalendarListComponent,
       },
       {
-        path: 'event/:id',
+        path: 'event',
         component: CalendarEventComponent,
+        children: [
+          {
+            path: ':id',
+            component: CalendarEventDetailComponent,
+          },
+          {
+            path: ':id/edit',
+            component: CalendarEventFormComponent,
+          },
+        ],
       },
       {
         path: 'create-event',
-        component: CalendarCreateEventComponent,
+        component: CalendarEventFormComponent,
       },
       {
         path: '**',
