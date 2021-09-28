@@ -1,0 +1,62 @@
+.back-to-list {
+  position: relative;
+  height: 100%;
+  font-size: 16px;
+  list-style: none;
+  padding: 1px 10px;
+  margin: 0 40px 0 0;
+  border: 2px solid rgb(252, 175, 20);
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+.back-to-list::after {
+  position: absolute;
+  content: "";
+  left: 5px;
+  top: 5px;
+  transform: translate(-2px, -2px);
+  height: calc(100% + 4px);
+  width: calc(100% + 4px);
+  border: 2px solid rgba(0, 0, 0, 0.16);
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+.calendar-create-title {
+  width: 35%;
+  font-size: 18px;
+  padding: 3px 15px;
+  border-bottom: 2px solid rgb(252, 175, 20);
+}
+
+@media (min-width: 768px) {
+  .calendar-create-title {
+    font-size: 20px;
+    margin: 15px 0;
+  }
+}
+
+.button-next {
+  position: relative;
+  font-size: 16px;
+  list-style: none;
+  padding: 1px 10px;
+  margin: 0 5px;
+  border: 2px solid rgb(252, 175, 20);
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+.button-next::after {
+  position: absolute;
+  content: "";
+  left: 5px;
+  top: 5px;
+  transform: translate(-2px, -2px);
+  height: calc(100% + 4px);
+  width: calc(100% + 4px);
+  border: 2px solid rgba(0, 0, 0, 0.16);
+  border-radius: 5px;
+  background-color: transparent;
+}
