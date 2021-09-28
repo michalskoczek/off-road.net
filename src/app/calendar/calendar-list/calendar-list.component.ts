@@ -9,6 +9,7 @@ import { EventService } from '../event.service';
 })
 export class CalendarListComponent implements OnInit {
   events: Event[];
+
   constructor(private eventService: EventService) {}
 
   ngOnInit(): void {
