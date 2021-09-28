@@ -1,7 +1,6 @@
 import { Event } from '../shared/event.model';
 
 export class EventService {
-  eventIndex: number;
   private events: Event[] = [
     new Event(
       'Bałtowskie Bezdroża',
