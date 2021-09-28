@@ -2,11 +2,11 @@
   <div class="options-panel__buttons">
     <button
       class="options-panel__option options-panel__button"
-      (click)="onMoveToCreateEvent()"
+      routerLink="/calendar/create-event"
     >
       {{ buttons[0] }}
     </button>
-    <button class="options-panel__option options-panel__button" routerLink="./">
+    <button class="options-panel__option options-panel__button" routerLink="/calendar">
       {{ buttons[1] }}
     </button>
   </div>
