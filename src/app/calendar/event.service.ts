@@ -42,7 +42,15 @@ export class EventService {
     return this.events[index];
   }
 
-  getRallyRace() {
-    return this.events.filter((event: Event) => event[3] === 'rajd');
+  addEvent(event: Event) {
+    this.events.push(event);
+  }
+
+  upgradeEvent(index: number, newEvent: Event) {
+    this.events[index] = newEvent;
+  }
+
+  deleteEvent(index: number) {
+    this.events.splice(index, 1);
   }
 }
