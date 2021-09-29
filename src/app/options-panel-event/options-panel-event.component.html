@@ -7,7 +7,11 @@
     >
       {{ buttons[0] }}
     </button>
-    <button type="button" class="options-panel__option options-panel__button">
+    <button
+      type="button"
+      class="options-panel__option options-panel__button"
+      (click)="onDeleteEvent()"
+    >
       {{ buttons[1] }}
     </button>
   </div>
