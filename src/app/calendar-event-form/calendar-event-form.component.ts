@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute, Params } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { EventService } from '../calendar/event.service';
 
 @Component({
@@ -9,13 +9,16 @@ import { EventService } from '../calendar/event.service';
   styleUrls: ['./calendar-event-form.component.css'],
 })
 export class CalendarEventFormComponent implements OnInit {
+  formTitle: string;
+  btnFormTitle: string;
   editMode = false;
   eventForm: FormGroup;
   index: number;
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private eventService: EventService
+    private eventService: EventService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -36,6 +39,8 @@ export class CalendarEventFormComponent implements OnInit {
     let eventDescription = '';
 
     if (this.editMode) {
+      this.formTitle = 'Edytuj wydarzenie';
+      this.btnFormTitle = 'Zaktualizuj wydarzenie';
       const event = this.eventService.getEvent(this.index);
       eventName = event.name;
       eventLocation = event.location;
@@ -44,20 +49,31 @@ export class CalendarEventFormComponent implements OnInit {
       eventOrganizer = event.organizer;
       eventCost = event.cost;
       eventDescription = event.description;
+    } else {
+      this.formTitle = 'Nowe wydarzenie';
+      this.btnFormTitle = 'Dodaj wydarzenie';
     }
 
     this.eventForm = new FormGroup({
-      name: new FormControl(eventName),
-      location: new FormControl(eventLocation),
-      date: new FormControl(eventDate),
-      type: new FormControl(eventType),
-      organizer: new FormControl(eventOrganizer),
-      cost: new FormControl(eventCost),
-      description: new FormControl(eventDescription),
+      name: new FormControl(eventName, Validators.required),
+      organizer: new FormControl(eventOrganizer, Validators.required),
+      date: new FormControl(eventDate, Validators.required),
+      type: new FormControl(eventType, Validators.required),
+      location: new FormControl(eventLocation, Validators.required),
+      cost: new FormControl(eventCost, [
+        Validators.required,
+        Validators.pattern(/^[1-9]+[0-9]*$/),
+      ]),
+      description: new FormControl(eventDescription, Validators.required),
     });
   }
 
   onSubmit() {
-    console.log(this.eventForm);
+    if (this.editMode) {
+      this.eventService.upgradeEvent(this.index, this.eventForm.value);
+    } else {
+      this.eventService.addEvent(this.eventForm.value);
+    }
+    this.router.navigateByUrl('/calendar');
   }
 }
