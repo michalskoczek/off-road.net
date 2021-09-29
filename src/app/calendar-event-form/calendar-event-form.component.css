@@ -60,3 +60,12 @@
   border-radius: 5px;
   background-color: transparent;
 }
+
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+.small-disclaimer {
+  color: red;
+}
