@@ -1,7 +1,7 @@
 import { Options } from './options.enum';
 
 export class OptionsPanelService {
-  private options: {buttonsName: string[]; optionsName: string[]}[] = [
+  private options: { buttonsName: string[]; optionsName: string[] }[] = [
     {
       buttonsName: ['Nowe wydarzenie', 'Lista wydarzeń'],
       optionsName: ['rajdy', 'wyprawy', 'turystyka', 'wyścigi'],
