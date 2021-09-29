@@ -6,7 +6,7 @@ export class EventService {
       'Bałtowskie Bezdroża',
       'Świętokrzyskie',
       'Bałtów Dragon Which',
-      'rajd',
+      'rally',
       '07.09',
       'SB',
       400,
@@ -16,7 +16,7 @@ export class EventService {
       'II rajd SUV-ów',
       'Mazowieckie',
       'Terenwizja',
-      'rajd',
+      'tourism',
       '15.09',
       'NDZ',
       300,
@@ -26,7 +26,7 @@ export class EventService {
       'Wyrowisko',
       'Łódzkie',
       'Wyrowiskowy',
-      'wyprawa',
+      'expedition',
       '29.11',
       'NDZ',
       600,
@@ -42,7 +42,15 @@ export class EventService {
     return this.events[index];
   }
 
-  getRallyRace() {
-    return this.events.filter((event: Event) => event[3] === 'rajd');
+  addEvent(event: Event) {
+    this.events.push(event);
+  }
+
+  upgradeEvent(index: number, newEvent: Event) {
+    this.events[index] = newEvent;
+  }
+
+  deleteEvent(index: number) {
+    this.events.splice(index, 1);
   }
 }

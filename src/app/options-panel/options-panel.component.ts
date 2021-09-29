@@ -20,8 +20,7 @@ export class OptionsPanelComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-      this.buttons = this.optionsService.getButtonsCalendar();
-      this.options = this.optionsService.getOptionsCalendar();
+    this.buttons = this.optionsService.getButtonsCalendar();
+    this.options = this.optionsService.getOptionsCalendar();
   }
- 
 }

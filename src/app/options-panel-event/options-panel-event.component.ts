@@ -1,4 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { EventService } from '../calendar/event.service';
 
 import { OptionsPanelService } from '../options-panel/options.service';
 
@@ -11,11 +14,28 @@ import { OptionsPanelService } from '../options-panel/options.service';
 export class OptionsPanelEventComponent implements OnInit {
   buttons: string[];
   options: string[];
+  index: number;
+  subscription: Subscription;
 
-  constructor(private optionsService: OptionsPanelService) {}
+  constructor(
+    private optionsService: OptionsPanelService,
+    private eventService: EventService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.buttons = this.optionsService.getButtonsCalendarEvent();
     this.options = this.optionsService.getOptionsCalendarEvent();
+  }
+
+  onDeleteEvent() {
+    this.subscription = this.activatedRoute.params.subscribe(
+      (params: Params) => {
+        this.index = +params['id'];
+      }
+    );
+    this.eventService.deleteEvent(this.index);
+    this.router.navigateByUrl('calendar');
   }
 }
