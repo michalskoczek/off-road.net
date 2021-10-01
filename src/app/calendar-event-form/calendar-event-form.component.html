@@ -99,12 +99,14 @@
             />
             <label class="form-check-label" for="speed-rally"> Wyścigi </label>
           </div>
+          <small
+            *ngIf="
+              eventForm.get('type').touched && eventForm.get('type').invalid
+            "
+            class="small-disclaimer"
+            >Typ jest wymagany</small
+          >
         </div>
-        <small
-          *ngIf="eventForm.get('type').touched && eventForm.get('type').invalid"
-          class="small-disclaimer"
-          >Typ jest wymagany</small
-        >
       </fieldset>
 
       <div class="form-group row">
