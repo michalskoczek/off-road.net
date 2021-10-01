@@ -29,6 +29,10 @@ export class CalendarEventDetailComponent implements OnInit, OnDestroy {
     );
   }
 
+  changeEventDateDisplaying(date) {
+    return date.split('-').reverse().join('-');
+  }
+
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }

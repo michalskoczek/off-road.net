@@ -42,7 +42,12 @@
       <div class="form-group row">
         <label for="date" class="col-sm-2 col-form-label">Termin:</label>
         <div class="col-sm-9">
-          <input type="text" class="form-control" formControlName="date" />
+          <input
+            type="date"
+            max="2030-01-01"
+            class="form-control"
+            formControlName="date"
+          />
           <small
             *ngIf="
               eventForm.get('date').touched && eventForm.get('date').invalid

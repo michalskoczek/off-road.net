@@ -7,7 +7,7 @@ export class EventService {
       'Świętokrzyskie',
       'Bałtów Dragon Which',
       'Rajd',
-      '07.09',
+      '2021-09-23',
       400,
       'Trudne zawody, ale spoko atmosfera',
       'https://cdn.pixabay.com/photo/2018/10/14/19/01/offroad-3747184_960_720.jpg'
@@ -17,7 +17,7 @@ export class EventService {
       'Mazowieckie',
       'Terenwizja',
       'Turystyka',
-      '15.09',
+      '2021-09-15',
       300,
       'Bedzie fajnie bo to terenwizja',
       'https://cdn.pixabay.com/photo/2018/10/14/19/01/offroad-3747184_960_720.jpg'
@@ -27,7 +27,7 @@ export class EventService {
       'Łódzkie',
       'Wyrowiskowy',
       'Wyprawa',
-      '29.11',
+      '2022-08-23',
       600,
       'Drogo, ale błota od groma',
       'https://cdn.pixabay.com/photo/2018/10/14/19/01/offroad-3747184_960_720.jpg'
@@ -36,6 +36,15 @@ export class EventService {
 
   getEvents() {
     return this.events.slice();
+  }
+
+  getSortedEvents() {
+    const eventsCopy = this.events.slice();
+    eventsCopy.forEach((event) => {
+      event.date = new Date(event.date);
+    });
+    const eventsSorted = eventsCopy.sort((a, b) => a.date - b.date);
+    return eventsSorted;
   }
 
   getEvent(index: number) {
