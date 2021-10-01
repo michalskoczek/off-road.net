@@ -8,9 +8,9 @@ export class EventService {
       'Bałtów Dragon Which',
       'rally',
       '07.09',
-      'SB',
       400,
-      'Trudne zawody, ale spoko atmosfera'
+      'Trudne zawody, ale spoko atmosfera',
+      'https://cdn.pixabay.com/photo/2018/10/14/19/01/offroad-3747184_960_720.jpg'
     ),
     new Event(
       'II rajd SUV-ów',
@@ -18,9 +18,9 @@ export class EventService {
       'Terenwizja',
       'tourism',
       '15.09',
-      'NDZ',
       300,
-      'Bedzie fajnie bo to terenwizja'
+      'Bedzie fajnie bo to terenwizja',
+      'https://cdn.pixabay.com/photo/2018/10/14/19/01/offroad-3747184_960_720.jpg'
     ),
     new Event(
       'Wyrowisko',
@@ -28,9 +28,9 @@ export class EventService {
       'Wyrowiskowy',
       'expedition',
       '29.11',
-      'NDZ',
       600,
-      'Drogo, ale błota od groma'
+      'Drogo, ale błota od groma',
+      'https://cdn.pixabay.com/photo/2018/10/14/19/01/offroad-3747184_960_720.jpg'
     ),
   ];
 

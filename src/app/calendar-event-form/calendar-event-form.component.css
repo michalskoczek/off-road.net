@@ -69,3 +69,7 @@ textarea.ng-invalid.ng-touched {
 .small-disclaimer {
   color: red;
 }
+
+.form-img {
+  max-width: 100%;
+}

@@ -99,12 +99,14 @@
             />
             <label class="form-check-label" for="speed-rally"> Wyścigi </label>
           </div>
+          <small
+            *ngIf="
+              eventForm.get('type').touched && eventForm.get('type').invalid
+            "
+            class="small-disclaimer"
+            >Typ jest wymagany</small
+          >
         </div>
-        <small
-          *ngIf="eventForm.get('type').touched && eventForm.get('type').invalid"
-          class="small-disclaimer"
-          >Typ jest wymagany</small
-        >
       </fieldset>
 
       <div class="form-group row">
@@ -154,6 +156,23 @@
           class="small-disclaimer"
           >Opis jest wymagany</small
         >
+      </div>
+
+      <div class="form-group row">
+        <label for="image" class="col-sm-2 col-form-label">Plakat:</label>
+        <div class="col-sm-9">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="image"
+            #image
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-7 offset-sm-2">
+          <img [src]="image.value" alt="" class="form-img" />
+        </div>
       </div>
 
       <button type="submit" class="button-next" [disabled]="!eventForm.valid">

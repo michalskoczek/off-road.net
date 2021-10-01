@@ -5,8 +5,8 @@ export class Event {
     public organizer: string,
     public type: string,
     public date: string,
-    public day: string,
     public cost: number,
-    public description: string
+    public description: string,
+    public image: string
   ) {}
 }

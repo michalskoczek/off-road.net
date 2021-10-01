@@ -37,6 +37,7 @@ export class CalendarEventFormComponent implements OnInit {
     let eventOrganizer = '';
     let eventCost = null;
     let eventDescription = '';
+    let eventImage = '';
 
     if (this.editMode) {
       this.formTitle = 'Edytuj wydarzenie';
@@ -49,6 +50,7 @@ export class CalendarEventFormComponent implements OnInit {
       eventOrganizer = event.organizer;
       eventCost = event.cost;
       eventDescription = event.description;
+      eventImage = event.image;
     } else {
       this.formTitle = 'Nowe wydarzenie';
       this.btnFormTitle = 'Dodaj wydarzenie';
@@ -65,6 +67,7 @@ export class CalendarEventFormComponent implements OnInit {
         Validators.pattern(/^[1-9]+[0-9]*$/),
       ]),
       description: new FormControl(eventDescription, Validators.required),
+      image: new FormControl(eventImage),
     });
   }
 
