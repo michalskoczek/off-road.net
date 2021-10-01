@@ -23,7 +23,7 @@
       </div>
       <div class="col-md-9">
         <p>{{ event.location }}</p>
-        <p>{{ event.date }}</p>
+        <p>{{ changeEventDateDisplaying(event.date) }}</p>
         <p>{{ event.type }}</p>
         <p>{{ event.organizer }}</p>
         <p>{{ event.cost }}</p>
@@ -34,11 +34,7 @@
   <div class="col-md-5">
     <div class="row event-details">
       <div class="col-md-6">
-        <img
-          src="../../../assets/offroad-header.jpg"
-          alt="off-road"
-          class="event-img"
-        />
+        <img src="{{ event.image }}" alt="off-road" class="event-img" />
       </div>
     </div>
     <div class="row event-details">

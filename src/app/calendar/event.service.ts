@@ -6,36 +6,45 @@ export class EventService {
       'Bałtowskie Bezdroża',
       'Świętokrzyskie',
       'Bałtów Dragon Which',
-      'rally',
-      '07.09',
-      'SB',
+      'Rajd',
+      '2021-09-23',
       400,
-      'Trudne zawody, ale spoko atmosfera'
+      'Trudne zawody, ale spoko atmosfera',
+      'https://cdn.pixabay.com/photo/2018/10/14/19/01/offroad-3747184_960_720.jpg'
     ),
     new Event(
       'II rajd SUV-ów',
       'Mazowieckie',
       'Terenwizja',
-      'tourism',
-      '15.09',
-      'NDZ',
+      'Turystyka',
+      '2021-09-15',
       300,
-      'Bedzie fajnie bo to terenwizja'
+      'Bedzie fajnie bo to terenwizja',
+      'https://cdn.pixabay.com/photo/2018/10/14/19/01/offroad-3747184_960_720.jpg'
     ),
     new Event(
       'Wyrowisko',
       'Łódzkie',
       'Wyrowiskowy',
-      'expedition',
-      '29.11',
-      'NDZ',
+      'Wyprawa',
+      '2022-08-23',
       600,
-      'Drogo, ale błota od groma'
+      'Drogo, ale błota od groma',
+      'https://cdn.pixabay.com/photo/2018/10/14/19/01/offroad-3747184_960_720.jpg'
     ),
   ];
 
   getEvents() {
     return this.events.slice();
+  }
+
+  getSortedEvents() {
+    const eventsCopy = this.events.slice();
+    eventsCopy.forEach((event) => {
+      event.date = new Date(event.date);
+    });
+    const eventsSorted = eventsCopy.sort((a, b) => a.date - b.date);
+    return eventsSorted;
   }
 
   getEvent(index: number) {
