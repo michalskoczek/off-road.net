@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { EventService } from '../calendar/event.service';
+import { Event } from '../shared/event.model';
 
 @Component({
   selector: 'app-calendar-event-form',
@@ -32,7 +33,7 @@ export class CalendarEventFormComponent implements OnInit {
   private initForm() {
     let eventName = '';
     let eventLocation = '';
-    let eventDate = '';
+    let eventDate = null;
     let eventType = '';
     let eventOrganizer = '';
     let eventCost = null;
@@ -72,10 +73,20 @@ export class CalendarEventFormComponent implements OnInit {
   }
 
   onSubmit() {
+    const eventSubmitted: Event = new Event(
+      this.eventForm.value.name,
+      this.eventForm.value.location,
+      this.eventForm.value.organizer,
+      this.eventForm.value.type,
+      this.eventForm.value.date,
+      this.eventForm.value.cost,
+      this.eventForm.value.description,
+      this.eventForm.value.image
+    );
     if (this.editMode) {
       this.eventService.upgradeEvent(this.index, this.eventForm.value);
     } else {
-      this.eventService.addEvent(this.eventForm.value);
+      this.eventService.addEvent(eventSubmitted);
     }
     this.router.navigateByUrl('/calendar');
   }

@@ -4,7 +4,7 @@ export class Event {
     public location: string,
     public organizer: string,
     public type: string,
-    public date: any,
+    public date: string,
     public cost: number,
     public description: string,
     public image: string
