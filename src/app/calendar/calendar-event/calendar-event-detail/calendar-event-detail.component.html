@@ -23,7 +23,7 @@
       </div>
       <div class="col-md-9">
         <p>{{ event.location }}</p>
-        <p>{{ changeEventDateDisplaying(event.date) }}</p>
+        <p>{{ event.date | date: "EEEE, dd.MM.YYYY" }}</p>
         <p>{{ event.type }}</p>
         <p>{{ event.organizer }}</p>
         <p>{{ event.cost }}</p>

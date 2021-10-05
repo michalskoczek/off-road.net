@@ -38,15 +38,6 @@ export class EventService {
     return this.events.slice();
   }
 
-  getSortedEvents() {
-    const eventsCopy = this.events.slice();
-    eventsCopy.forEach((event) => {
-      event.date = new Date(event.date);
-    });
-    const eventsSorted = eventsCopy.sort((a, b) => a.date - b.date);
-    return eventsSorted;
-  }
-
   getEvent(index: number) {
     return this.events[index];
   }
