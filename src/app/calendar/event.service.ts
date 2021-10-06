@@ -38,7 +38,18 @@ export class EventService {
     return this.events.slice();
   }
 
+  getSortedEvents() {
+    return this.events.slice().sort((a, b) => {
+      if (a.date > b.date) {
+        return 1;
+      } else {
+        return -1;
+      }
+    });
+  }
+
   getEvent(index: number) {
+    this.events = this.getSortedEvents();
     return this.events[index];
   }
 
