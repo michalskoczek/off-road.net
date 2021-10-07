@@ -84,7 +84,7 @@ export class CalendarEventFormComponent implements OnInit {
       this.eventForm.value.image
     );
     if (this.editMode) {
-      this.eventService.upgradeEvent(this.index, this.eventForm.value);
+      this.eventService.upgradeEvent(this.index, eventSubmitted);
     } else {
       this.eventService.addEvent(eventSubmitted);
     }

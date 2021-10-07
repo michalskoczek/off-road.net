@@ -4,13 +4,13 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-12">
-    <p class="calendar-months">wrzesień 2021</p>
-  </div>
-</div>
-
 <div class="row calendar-event" *ngFor="let event of events; let i = index">
+  <div class="col-md-12">
+    <p class="calendar-months" *ngIf="displayMonths(event, i)">
+      {{ event.date | date: "LLLL" }} {{ event.date | date: "YYYY" }}
+    </p>
+  </div>
+
   <div class="col-md-1 calendar-term">
     <p class="calendar-date">{{ event.date | date: "dd.MM" }}</p>
     <p class="calendar-day">{{ event.date | date: "EE" | uppercase }}</p>
