@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CalendarEventFormComponent } from './calendar-event-form/calendar-event-form.component';
+import { CanDeactivateGuard } from './calendar-event-form/can-deactivate-guard.service';
 import { CalendarEventDetailComponent } from './calendar/calendar-event/calendar-event-detail/calendar-event-detail.component';
 import { CalendarEventComponent } from './calendar/calendar-event/calendar-event.component';
 import { CalendarListComponent } from './calendar/calendar-list/calendar-list.component';
@@ -33,6 +34,7 @@ const appRoutes: Routes = [
           {
             path: ':id/edit',
             component: CalendarEventFormComponent,
+            canDeactivate: [CanDeactivateGuard],
           },
         ],
       },
