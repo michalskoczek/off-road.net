@@ -1,20 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { EventService } from '../calendar/event.service';
 import { Event } from '../shared/event.model';
+import { CanComponentDeactivate } from './can-deactivate-guard.service';
 
 @Component({
   selector: 'app-calendar-event-form',
   templateUrl: './calendar-event-form.component.html',
   styleUrls: ['./calendar-event-form.component.css'],
 })
-export class CalendarEventFormComponent implements OnInit {
+export class CalendarEventFormComponent
+  implements OnInit, CanComponentDeactivate
+{
   formTitle: string;
   btnFormTitle: string;
   editMode = false;
   eventForm: FormGroup;
   index: number;
+  changesSaved: boolean = false;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -85,9 +90,39 @@ export class CalendarEventFormComponent implements OnInit {
     );
     if (this.editMode) {
       this.eventService.upgradeEvent(this.index, eventSubmitted);
+      this.changesSaved = true;
     } else {
       this.eventService.addEvent(eventSubmitted);
     }
     this.router.navigateByUrl('/calendar');
+  }
+
+  canDeactivate(): Observable<boolean> | Promise<boolean> | boolean {
+    if (!this.editMode) {
+      return true;
+    }
+    if (
+      (this.eventService.getEvent(this.index).name !==
+        this.eventForm.value.name ||
+        this.eventService.getEvent(this.index).location !==
+          this.eventForm.value.location ||
+        this.eventService.getEvent(this.index).organizer !==
+          this.eventForm.value.organizer ||
+        this.eventService.getEvent(this.index).type !==
+          this.eventForm.value.type ||
+        this.eventService.getEvent(this.index).date !==
+          this.eventForm.value.date ||
+        this.eventService.getEvent(this.index).cost !==
+          this.eventForm.value.cost ||
+        this.eventService.getEvent(this.index).description !==
+          this.eventForm.value.description ||
+        this.eventService.getEvent(this.index).image !==
+          this.eventForm.value.image) &&
+      !this.changesSaved
+    ) {
+      return confirm('Czy chcesz odrzucić wprowadzone zmiany?');
+    } else {
+      return true;
+    }
   }
 }

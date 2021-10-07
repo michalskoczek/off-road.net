@@ -18,6 +18,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { OptionsPanelEventComponent } from './options-panel-event/options-panel-event.component';
 import { CalendarEventFormComponent } from './calendar-event-form/calendar-event-form.component';
 import { CalendarEventDetailComponent } from './calendar/calendar-event/calendar-event-detail/calendar-event-detail.component';
+import { CanDeactivateGuard } from './calendar-event-form/can-deactivate-guard.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { CalendarEventDetailComponent } from './calendar/calendar-event/calendar
     CalendarEventDetailComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
-  providers: [{ provide: LOCALE_ID, useValue: 'pl-PL' }],
+  providers: [{ provide: LOCALE_ID, useValue: 'pl-PL' }, CanDeactivateGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
