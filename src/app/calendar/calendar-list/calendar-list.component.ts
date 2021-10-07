@@ -16,4 +16,15 @@ export class CalendarListComponent implements OnInit {
     this.events = this.eventService.getSortedEvents();
     console.log(this.events);
   }
+
+  displayMonths(event: Event, index) {
+    if (index === 0) {
+      return true;
+    } else if (index > 0) {
+      return Number(this.events[index].date.split('-')[1]) !=
+        Number(this.events[index - 1].date.split('-')[1])
+        ? true
+        : false;
+    }
+  }
 }
