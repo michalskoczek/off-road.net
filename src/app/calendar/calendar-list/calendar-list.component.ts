@@ -14,7 +14,6 @@ export class CalendarListComponent implements OnInit {
 
   ngOnInit(): void {
     this.events = this.eventService.getSortedEvents();
-    console.log(this.events);
   }
 
   displayMonths(event: Event, index) {
