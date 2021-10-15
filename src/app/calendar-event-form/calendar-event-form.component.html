@@ -1,12 +1,11 @@
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-3">
     <button class="back-to-list" routerLink="../">wstecz</button>
   </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
+  <div class="col-9">
     <p class="calendar-create-title">{{ formTitle }}</p>
-
+  </div>
+  <div class="col-md-12">
     <form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
       <div class="form-group row">
         <label for="name" class="col-sm-2 col-form-label">Nazwa:</label>
@@ -146,11 +145,11 @@
       </div>
 
       <div class="form-group">
-        <label for="description" class="col-sm-2 col-form-label">Opis:</label>
+        <label for="description" class="col-form-label">Opis:</label>
         <textarea
           type="text"
           formControlName="description"
-          class="col-sm-9 form-control"
+          class="form-control desc-textarea"
           rows="3"
         ></textarea>
         <small
@@ -180,9 +179,11 @@
         </div>
       </div>
 
-      <button type="submit" class="button-next" [disabled]="!eventForm.valid">
-        {{ btnFormTitle }}
-      </button>
+      <div class="d-flex justify-content-end">
+        <button type="submit" class="button-next" [disabled]="!eventForm.valid">
+          {{ btnFormTitle }}
+        </button>
+      </div>
     </form>
   </div>
 </div>
