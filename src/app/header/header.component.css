@@ -1,3 +1,7 @@
+.navbar-paddings {
+  margin-bottom: 10px !important;
+}
+
 .header-clickable {
   cursor: pointer;
 }
