@@ -9,6 +9,7 @@
     <button
       class="options-panel__option options-panel__button"
       routerLink="/calendar"
+      *ngIf="buttons.length > 1"
     >
       {{ buttons[1] }}
     </button>

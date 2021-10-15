@@ -1,8 +1,4 @@
-<div class="row">
-  <div class="col-md-12">
-    <app-options-panel></app-options-panel>
-  </div>
-</div>
+<app-options-panel></app-options-panel>
 
 <div class="row calendar-event" *ngFor="let event of events; let i = index">
   <div class="col-md-12">
@@ -11,11 +7,11 @@
     </p>
   </div>
 
-  <div class="col-md-1 calendar-term">
+  <div class="col-2 col-md-1 calendar-term">
     <p class="calendar-date">{{ event.date | date: "dd.MM" }}</p>
     <p class="calendar-day">{{ event.date | date: "EE" | uppercase }}</p>
   </div>
-  <a class="col-md-10 calendar-details" [routerLink]="['event', i]">
+  <a class="col-10 col-md-10 calendar-details" [routerLink]="['event', i]">
     <p class="calendar-name">{{ event.name }}</p>
     <p class="calendar-localization">{{ event.location }}</p>
     <p class="calendar-organizer">{{ event.organizer }}</p>
