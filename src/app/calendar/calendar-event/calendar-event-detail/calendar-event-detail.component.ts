@@ -14,6 +14,7 @@ export class CalendarEventDetailComponent implements OnInit, OnDestroy {
   event: Event;
   id: number;
   subscription: Subscription;
+  participationElement: number[];
 
   constructor(
     private eventService: EventService,
@@ -25,11 +26,18 @@ export class CalendarEventDetailComponent implements OnInit, OnDestroy {
       (params: Params) => {
         this.id = +params['id'];
         this.event = this.eventService.getEvent(this.id);
+        this.participationElement = this.eventService.getEventParticipation(
+          this.id
+        );
       }
     );
   }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  onResetParticipation() {
+    this.eventService.participation;
   }
 }
