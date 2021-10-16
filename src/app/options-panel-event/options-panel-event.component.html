@@ -17,7 +17,11 @@
   </div>
 
   <ul class="options-panel__options-container">
-    <li *ngFor="let option of options" class="options-panel__option">
+    <li
+      *ngFor="let option of options; let i = index"
+      class="options-panel__option"
+      (click)="onIncreaseParticipation(i)"
+    >
       {{ option }}
     </li>
   </ul>

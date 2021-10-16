@@ -34,4 +34,11 @@ export class OptionsPanelEventComponent implements OnInit {
     this.eventService.deleteEvent(this.index);
     this.router.navigateByUrl('calendar');
   }
+
+  onIncreaseParticipation(participationIndex: number) {
+    this.activatedRoute.params.subscribe((params: Params) => {
+      this.index = +params['id'];
+    });
+    this.eventService.increaseParticipation(this.index, participationIndex);
+  }
 }

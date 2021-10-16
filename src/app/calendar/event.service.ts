@@ -10,7 +10,8 @@ export class EventService {
       '2021-09-23',
       400,
       'Trudne zawody, ale spoko atmosfera',
-      'https://cdn.pixabay.com/photo/2018/10/14/19/01/offroad-3747184_960_720.jpg'
+      'https://cdn.pixabay.com/photo/2018/10/14/19/01/offroad-3747184_960_720.jpg',
+      [3, 4, 5]
     ),
     new Event(
       'II rajd SUV-ów',
@@ -20,7 +21,8 @@ export class EventService {
       '2021-09-15',
       300,
       'Bedzie fajnie bo to terenwizja',
-      'https://cdn.pixabay.com/photo/2018/10/14/19/01/offroad-3747184_960_720.jpg'
+      'https://cdn.pixabay.com/photo/2018/10/14/19/01/offroad-3747184_960_720.jpg',
+      [5, 10, 6]
     ),
     new Event(
       'Wyrowisko',
@@ -30,9 +32,16 @@ export class EventService {
       '2022-08-23',
       600,
       'Drogo, ale błota od groma',
-      'https://cdn.pixabay.com/photo/2018/10/14/19/01/offroad-3747184_960_720.jpg'
+      'https://cdn.pixabay.com/photo/2018/10/14/19/01/offroad-3747184_960_720.jpg',
+      [3, 6, 9]
     ),
   ];
+
+  private isParticipation: boolean[] = [false, false, false];
+
+  get participation() {
+    return (this.isParticipation = [false, false, false]);
+  }
 
   getEvents() {
     return this.events.slice();
@@ -51,6 +60,39 @@ export class EventService {
   getEvent(index: number) {
     this.events = this.getSortedEvents();
     return this.events[index];
+  }
+
+  getEventParticipation(index: number) {
+    this.events = this.getSortedEvents();
+    return this.events[index].participation;
+  }
+
+  increaseParticipation(index: number, participationIndex: number) {
+    this.events = this.getSortedEvents();
+    const isFirstTime = this.isParticipation.find(
+      (element) => element === true
+    );
+    if (isFirstTime === undefined) {
+      this.isParticipation[participationIndex] = true;
+      this.events[index].participation[participationIndex] += 1;
+    } else if (
+      isFirstTime &&
+      this.isParticipation[participationIndex] === true
+    ) {
+      return;
+    } else if (
+      isFirstTime &&
+      this.isParticipation[participationIndex] === false
+    ) {
+      const indexOfTrue = this.isParticipation.findIndex(
+        (element) => element === true
+      );
+      this.isParticipation[indexOfTrue] = false;
+      this.events[index].participation[indexOfTrue] -= 1;
+
+      this.isParticipation[participationIndex] = true;
+      this.events[index].participation[participationIndex] += 1;
+    }
   }
 
   addEvent(event: Event) {
