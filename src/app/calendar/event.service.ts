@@ -62,6 +62,39 @@ export class EventService {
     return this.events[index];
   }
 
+  getEventParticipation(index: number) {
+    this.events = this.getSortedEvents();
+    return this.events[index].participation;
+  }
+
+  increaseParticipation(index: number, participationIndex: number) {
+    this.events = this.getSortedEvents();
+    const isFirstTime = this.isParticipation.find(
+      (element) => element === true
+    );
+    if (isFirstTime === undefined) {
+      this.isParticipation[participationIndex] = true;
+      this.events[index].participation[participationIndex] += 1;
+    } else if (
+      isFirstTime &&
+      this.isParticipation[participationIndex] === true
+    ) {
+      return;
+    } else if (
+      isFirstTime &&
+      this.isParticipation[participationIndex] === false
+    ) {
+      const indexOfTrue = this.isParticipation.findIndex(
+        (element) => element === true
+      );
+      this.isParticipation[indexOfTrue] = false;
+      this.events[index].participation[indexOfTrue] -= 1;
+
+      this.isParticipation[participationIndex] = true;
+      this.events[index].participation[participationIndex] += 1;
+    }
+  }
+
   addEvent(event: Event) {
     this.events.push(event);
   }
