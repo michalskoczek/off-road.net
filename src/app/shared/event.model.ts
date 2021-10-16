@@ -7,6 +7,7 @@ export class Event {
     public date: string,
     public cost: number,
     public description: string,
-    public image: string
+    public image: string,
+    public participation: number[]
   ) {}
 }
