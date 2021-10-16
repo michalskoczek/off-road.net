@@ -10,7 +10,8 @@ export class EventService {
       '2021-09-23',
       400,
       'Trudne zawody, ale spoko atmosfera',
-      'https://cdn.pixabay.com/photo/2018/10/14/19/01/offroad-3747184_960_720.jpg'
+      'https://cdn.pixabay.com/photo/2018/10/14/19/01/offroad-3747184_960_720.jpg',
+      [3, 4, 5]
     ),
     new Event(
       'II rajd SUV-ów',
@@ -20,7 +21,8 @@ export class EventService {
       '2021-09-15',
       300,
       'Bedzie fajnie bo to terenwizja',
-      'https://cdn.pixabay.com/photo/2018/10/14/19/01/offroad-3747184_960_720.jpg'
+      'https://cdn.pixabay.com/photo/2018/10/14/19/01/offroad-3747184_960_720.jpg',
+      [5, 10, 6]
     ),
     new Event(
       'Wyrowisko',
@@ -30,9 +32,16 @@ export class EventService {
       '2022-08-23',
       600,
       'Drogo, ale błota od groma',
-      'https://cdn.pixabay.com/photo/2018/10/14/19/01/offroad-3747184_960_720.jpg'
+      'https://cdn.pixabay.com/photo/2018/10/14/19/01/offroad-3747184_960_720.jpg',
+      [3, 6, 9]
     ),
   ];
+
+  private isParticipation: boolean[] = [false, false, false];
+
+  get participation() {
+    return (this.isParticipation = [false, false, false]);
+  }
 
   getEvents() {
     return this.events.slice();
