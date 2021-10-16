@@ -86,7 +86,8 @@ export class CalendarEventFormComponent
       this.eventForm.value.date,
       this.eventForm.value.cost,
       this.eventForm.value.description,
-      this.eventForm.value.image
+      this.eventForm.value.image,
+      this.eventService.getEventParticipation(this.index)
     );
     if (this.editMode) {
       this.eventService.upgradeEvent(this.index, eventSubmitted);
