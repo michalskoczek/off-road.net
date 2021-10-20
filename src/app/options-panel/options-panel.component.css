@@ -46,6 +46,7 @@
     margin: auto 15px;
     padding: 1px 10px;
     background-color: transparent;
+    cursor: pointer;
   }
 
   .options-panel__option::after {
