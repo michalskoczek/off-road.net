@@ -19,6 +19,7 @@ import { OptionsPanelEventComponent } from './options-panel-event/options-panel-
 import { CalendarEventFormComponent } from './calendar-event-form/calendar-event-form.component';
 import { CalendarEventDetailComponent } from './calendar/calendar-event/calendar-event-detail/calendar-event-detail.component';
 import { CanDeactivateGuard } from './calendar-event-form/can-deactivate-guard.service';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -36,9 +37,14 @@ import { CanDeactivateGuard } from './calendar-event-form/can-deactivate-guard.s
     OptionsPanelEventComponent,
     CalendarEventFormComponent,
     CalendarEventDetailComponent,
+    FilterPipe,
   ],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
-  providers: [{ provide: LOCALE_ID, useValue: 'pl-PL' }, CanDeactivateGuard],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'pl-PL' },
+    CanDeactivateGuard,
+    FilterPipe,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
