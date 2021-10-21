@@ -16,11 +16,7 @@
   </div>
 
   <ul class="options-panel__options-container">
-    <li
-      *ngFor="let option of options"
-      class="options-panel__option"
-      (click)="onFilterEvents($event)"
-    >
+    <li *ngFor="let option of options" class="options-panel__option">
       {{ option }}
     </li>
   </ul>
