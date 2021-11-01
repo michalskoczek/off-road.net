@@ -20,6 +20,7 @@ export class CalendarEventFormComponent
   eventForm: FormGroup;
   index: number;
   changesSaved: boolean = false;
+  defaultParticipationValue: number[] = [0, 0, 0];
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -87,9 +88,12 @@ export class CalendarEventFormComponent
       this.eventForm.value.cost,
       this.eventForm.value.description,
       this.eventForm.value.image,
-      this.eventService.getEventParticipation(this.index)
+      this.defaultParticipationValue
     );
     if (this.editMode) {
+      eventSubmitted.participation = this.eventService.getEventParticipation(
+        this.index
+      );
       this.eventService.upgradeEvent(this.index, eventSubmitted);
       this.changesSaved = true;
     } else {
