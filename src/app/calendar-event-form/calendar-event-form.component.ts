@@ -20,6 +20,7 @@ export class CalendarEventFormComponent
   eventForm: FormGroup;
   index: number;
   changesSaved: boolean = false;
+  defaultParticipationValue: number[] = [0, 0, 0];
 
   constructor(
     private activatedRoute: ActivatedRoute,
