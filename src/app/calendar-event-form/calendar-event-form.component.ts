@@ -26,7 +26,8 @@ export class CalendarEventFormComponent
   constructor(
     private activatedRoute: ActivatedRoute,
     private eventService: EventService,
-    private router: Router
+    private router: Router,
+    private http: HttpClient
   ) {}
 
   ngOnInit(): void {
