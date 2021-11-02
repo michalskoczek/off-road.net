@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
@@ -25,7 +26,8 @@ export class CalendarEventFormComponent
   constructor(
     private activatedRoute: ActivatedRoute,
     private eventService: EventService,
-    private router: Router
+    private router: Router,
+    private http: HttpClient
   ) {}
 
   ngOnInit(): void {
@@ -97,7 +99,14 @@ export class CalendarEventFormComponent
       this.eventService.upgradeEvent(this.index, eventSubmitted);
       this.changesSaved = true;
     } else {
-      this.eventService.addEvent(eventSubmitted);
+      // this.eventService.addEvent(eventSubmitted);
+      console.log('klik onSubmit');
+      this.http
+        .post(
+          'https://off-road-net-default-rtdb.europe-west1.firebasedatabase.app/events.json',
+          eventSubmitted
+        )
+        .subscribe((responseData) => console.log(responseData));
     }
     this.router.navigateByUrl('/calendar');
   }
