@@ -99,7 +99,14 @@ export class CalendarEventFormComponent
       this.eventService.upgradeEvent(this.index, eventSubmitted);
       this.changesSaved = true;
     } else {
-      this.eventService.addEvent(eventSubmitted);
+      // this.eventService.addEvent(eventSubmitted);
+      console.log('klik onSubmit');
+      this.http
+        .post(
+          'https://off-road-net-default-rtdb.europe-west1.firebasedatabase.app/events.json',
+          eventSubmitted
+        )
+        .subscribe((responseData) => console.log(responseData));
     }
     this.router.navigateByUrl('/calendar');
   }
