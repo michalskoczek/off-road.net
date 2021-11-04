@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Event } from 'src/app/shared/event.model';
 import { EventService } from '../event.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-calendar-list',
