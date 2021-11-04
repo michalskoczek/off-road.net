@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Event } from 'src/app/shared/event.model';
 import { EventService } from '../event.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-calendar-list',
@@ -9,11 +11,13 @@ import { EventService } from '../event.service';
 })
 export class CalendarListComponent implements OnInit {
   events: Event[];
+  isFetching: boolean = false;
 
-  constructor(private eventService: EventService) {}
+  constructor(private eventService: EventService, private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.events = this.eventService.getSortedEvents();
+    //this.events = this.eventService.getSortedEvents();
+    this.getEvents();
   }
 
   displayMonths(event: Event, index) {
@@ -25,5 +29,27 @@ export class CalendarListComponent implements OnInit {
         ? true
         : false;
     }
+  }
+
+  private getEvents() {
+    this.isFetching = true;
+    this.http
+      .get<{ [key: string]: Event }>(
+        'https://off-road-net-default-rtdb.europe-west1.firebasedatabase.app/events.json'
+      )
+      .pipe(
+        map((responseData) => {
+          const eventsArray = [];
+          for (const key in responseData)
+            if (responseData.hasOwnProperty(key)) {
+              eventsArray.push({ ...responseData[key], id: key });
+            }
+          return eventsArray;
+        })
+      )
+      .subscribe((events) => {
+        this.isFetching = false;
+        this.events = events;
+      });
   }
 }
