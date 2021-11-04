@@ -30,4 +30,26 @@ export class CalendarListComponent implements OnInit {
         : false;
     }
   }
+
+  private getEvents() {
+    this.isFetching = true;
+    this.http
+      .get<{ [key: string]: Event }>(
+        'https://off-road-net-default-rtdb.europe-west1.firebasedatabase.app/events.json'
+      )
+      .pipe(
+        map((responseData) => {
+          const eventsArray = [];
+          for (const key in responseData)
+            if (responseData.hasOwnProperty(key)) {
+              eventsArray.push({ ...responseData[key], id: key });
+            }
+          return eventsArray;
+        })
+      )
+      .subscribe((events) => {
+        this.isFetching = false;
+        this.events = events;
+      });
+  }
 }
