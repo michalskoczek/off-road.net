@@ -11,11 +11,13 @@ import { map } from 'rxjs/operators';
 })
 export class CalendarListComponent implements OnInit {
   events: Event[];
+  isFetching: boolean = false;
 
-  constructor(private eventService: EventService) {}
+  constructor(private eventService: EventService, private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.events = this.eventService.getSortedEvents();
+    //this.events = this.eventService.getSortedEvents();
+    this.getEvents();
   }
 
   displayMonths(event: Event, index) {
