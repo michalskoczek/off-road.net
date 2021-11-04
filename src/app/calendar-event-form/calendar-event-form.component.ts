@@ -99,10 +99,8 @@ export class CalendarEventFormComponent
       this.eventService.upgradeEvent(this.index, eventSubmitted);
       this.changesSaved = true;
     } else {
-      // this.eventService.addEvent(eventSubmitted);
-      console.log('klik onSubmit');
       this.http
-        .post(
+        .post<{ name: string }>(
           'https://off-road-net-default-rtdb.europe-west1.firebasedatabase.app/events.json',
           eventSubmitted
         )
