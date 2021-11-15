@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Event } from 'src/app/shared/event.model';
 import { map } from 'rxjs/operators';
 import { EventsStorageService } from '../events-storage.service';
