@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Event } from 'src/app/shared/event.model';
-import { map } from 'rxjs/operators';
+import { EventService } from '../event.service';
 import { EventsStorageService } from '../events-storage.service';
 
 @Component({
@@ -12,7 +12,10 @@ export class CalendarListComponent implements OnInit {
   events: Event[];
   isFetching: boolean = false;
 
-  constructor(private eventsStorageService: EventsStorageService) {}
+  constructor(
+    private eventService: EventService,
+    private eventsStorageService: EventsStorageService
+  ) {}
 
   ngOnInit(): void {
     this.showEvents();
