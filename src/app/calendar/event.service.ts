@@ -24,6 +24,14 @@ export class EventService {
     });
   }
 
+  sortEvents(events: Event[]) {
+    return events.sort((a, b) => {
+      let aDate = new Date(a.date);
+      let bDate = new Date(b.date);
+      return aDate.getTime() - bDate.getTime();
+    });
+  }
+
   getEvent(index: number) {
     this.events = this.getSortedEvents();
     return this.events[index];
