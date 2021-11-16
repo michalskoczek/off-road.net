@@ -34,21 +34,9 @@ export class CalendarListComponent implements OnInit {
 
   private showEvents() {
     this.isFetching = true;
-    this.eventsStorageService
-      .getEvents()
-      .pipe(
-        map((responseData) => {
-          const eventsArray = [];
-          for (const key in responseData)
-            if (responseData.hasOwnProperty(key)) {
-              eventsArray.push({ ...responseData[key], id: key });
-            }
-          return eventsArray;
-        })
-      )
-      .subscribe((events) => {
-        this.isFetching = false;
-        this.events = events;
-      });
+    this.eventsStorageService.getEvents().subscribe((events) => {
+      this.isFetching = false;
+      this.events = this.eventService.sortEvents(events);
+    });
   }
 }
