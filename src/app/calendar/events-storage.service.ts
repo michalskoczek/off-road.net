@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
 
 import { Event } from '../shared/event.model';
 
@@ -8,9 +9,20 @@ export class EventsStorageService {
   constructor(private http: HttpClient) {}
 
   getEvents() {
-    return this.http.get<{ [key: string]: Event }>(
-      'https://off-road-net-default-rtdb.europe-west1.firebasedatabase.app/events.json'
-    );
+    return this.http
+      .get<{ [key: string]: Event }>(
+        'https://off-road-net-default-rtdb.europe-west1.firebasedatabase.app/events.json'
+      )
+      .pipe(
+        map((responseData) => {
+          const eventsArray = [];
+          for (const key in responseData)
+            if (responseData.hasOwnProperty(key)) {
+              eventsArray.push({ ...responseData[key], id: key });
+            }
+          return eventsArray;
+        })
+      );
   }
 
   postEvent(eventSubmitted) {

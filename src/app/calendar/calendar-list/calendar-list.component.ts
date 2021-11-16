@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Event } from 'src/app/shared/event.model';
-import { map } from 'rxjs/operators';
+import { EventService } from '../event.service';
 import { EventsStorageService } from '../events-storage.service';
 
 @Component({
@@ -12,7 +12,10 @@ export class CalendarListComponent implements OnInit {
   events: Event[];
   isFetching: boolean = false;
 
-  constructor(private eventsStorageService: EventsStorageService) {}
+  constructor(
+    private eventService: EventService,
+    private eventsStorageService: EventsStorageService
+  ) {}
 
   ngOnInit(): void {
     this.showEvents();
@@ -31,21 +34,9 @@ export class CalendarListComponent implements OnInit {
 
   private showEvents() {
     this.isFetching = true;
-    this.eventsStorageService
-      .getEvents()
-      .pipe(
-        map((responseData) => {
-          const eventsArray = [];
-          for (const key in responseData)
-            if (responseData.hasOwnProperty(key)) {
-              eventsArray.push({ ...responseData[key], id: key });
-            }
-          return eventsArray;
-        })
-      )
-      .subscribe((events) => {
-        this.isFetching = false;
-        this.events = events;
-      });
+    this.eventsStorageService.getEvents().subscribe((events) => {
+      this.isFetching = false;
+      this.events = this.eventService.sortEvents(events);
+    });
   }
 }

@@ -1,50 +1,17 @@
+import { Injectable } from '@angular/core';
 import { Event } from '../shared/event.model';
+import { EventsStorageService } from './events-storage.service';
 
+@Injectable({ providedIn: 'root' })
 export class EventService {
-  private events: Event[] = [
-    new Event(
-      'Bałtowskie Bezdroża',
-      'Świętokrzyskie',
-      'Bałtów Dragon Which',
-      'Rajd',
-      '2021-09-23',
-      400,
-      'Trudne zawody, ale spoko atmosfera',
-      'https://cdn.pixabay.com/photo/2018/10/14/19/01/offroad-3747184_960_720.jpg',
-      [3, 4, 5]
-    ),
-    new Event(
-      'II rajd SUV-ów',
-      'Mazowieckie',
-      'Terenwizja',
-      'Turystyka',
-      '2021-09-15',
-      300,
-      'Bedzie fajnie bo to terenwizja',
-      'https://cdn.pixabay.com/photo/2018/10/14/19/01/offroad-3747184_960_720.jpg',
-      [5, 10, 6]
-    ),
-    new Event(
-      'Wyrowisko',
-      'Łódzkie',
-      'Wyrowiskowy',
-      'Wyprawa',
-      '2022-08-23',
-      600,
-      'Drogo, ale błota od groma',
-      'https://cdn.pixabay.com/photo/2018/10/14/19/01/offroad-3747184_960_720.jpg',
-      [3, 6, 9]
-    ),
-  ];
+  constructor(private eventsStorageService: EventsStorageService) {}
+
+  private events: Event[] = [];
 
   private isParticipation: boolean[] = [false, false, false];
 
   get participation() {
     return (this.isParticipation = [false, false, false]);
-  }
-
-  getEvents() {
-    return this.events.slice();
   }
 
   getSortedEvents() {
@@ -54,6 +21,14 @@ export class EventService {
       } else {
         return -1;
       }
+    });
+  }
+
+  sortEvents(events: Event[]) {
+    return events.sort((a, b) => {
+      let aDate = new Date(a.date);
+      let bDate = new Date(b.date);
+      return aDate.getTime() - bDate.getTime();
     });
   }
 
