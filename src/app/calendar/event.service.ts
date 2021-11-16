@@ -14,10 +14,6 @@ export class EventService {
     return (this.isParticipation = [false, false, false]);
   }
 
-  getEvents() {
-    return this.events.slice();
-  }
-
   getSortedEvents() {
     return this.events.slice().sort((a, b) => {
       if (a.date > b.date) {
