@@ -33,4 +33,8 @@ export class EventsStorageService {
       )
       .subscribe((responseData) => console.log(responseData));
   }
+
+  getEvent() {
+   return this.http.get<{ [key: string]: Event }>(`https://off-road-net-default-rtdb.europe-west1.firebasedatabase.app/events.json`)
+  }
 }

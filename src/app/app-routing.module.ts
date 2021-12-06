@@ -6,6 +6,7 @@ import { CalendarEventDetailComponent } from './calendar/calendar-event/calendar
 import { CalendarEventComponent } from './calendar/calendar-event/calendar-event.component';
 import { CalendarListComponent } from './calendar/calendar-list/calendar-list.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { EventResolverResolver } from './calendar/event-resolver.resolver';
 import { HomepageComponent } from './homepage/homepage.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
@@ -30,11 +31,17 @@ const appRoutes: Routes = [
           {
             path: ':id',
             component: CalendarEventDetailComponent,
+            resolve: {
+              event: EventResolverResolver
+            }
           },
           {
             path: ':id/edit',
             component: CalendarEventFormComponent,
             canDeactivate: [CanDeactivateGuard],
+            resolve: {
+              event: EventResolverResolver
+            }
           },
         ],
       },
