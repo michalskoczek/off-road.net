@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Event } from 'src/app/shared/event.model';
 import { EventService } from '../event.service';
-import { EventsStorageService } from '../events-storage.service';
 
 @Component({
   selector: 'app-calendar-list',
@@ -13,8 +13,8 @@ export class CalendarListComponent implements OnInit {
   isFetching: boolean = false;
 
   constructor(
-    private eventService: EventService,
-    private eventsStorageService: EventsStorageService
+    private activatedRoute: ActivatedRoute,
+    private eventService: EventService
   ) {}
 
   ngOnInit(): void {
@@ -33,10 +33,9 @@ export class CalendarListComponent implements OnInit {
   }
 
   private showEvents() {
-    this.isFetching = true;
-    this.eventsStorageService.getEvents().subscribe((events) => {
-      this.isFetching = false;
-      this.events = this.eventService.sortEvents(events);
-    });
+    this.events = this.eventService.sortEvents(
+      this.activatedRoute.snapshot.data.events
+    );
+    console.log(this.events);
   }
 }
