@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Event } from '../shared/event.model';
-import { EventsStorageService } from './events-storage.service';
 
 @Injectable({ providedIn: 'root' })
 export class EventService {
-  constructor(private eventsStorageService: EventsStorageService) {}
+  eventsChanged = new Subject<Event[]>();
+
+  constructor() {}
 
   private events: Event[] = [];
 
