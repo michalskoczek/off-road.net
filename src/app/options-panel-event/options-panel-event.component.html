@@ -16,7 +16,7 @@
     </button>
   </div>
 
-  <ul class="options-panel__options-container">
+  <ul *ngIf="isLogin" class="options-panel__options-container">
     <li
       *ngFor="let option of options; let i = index"
       class="options-panel__option"
