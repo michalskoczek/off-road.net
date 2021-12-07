@@ -33,9 +33,9 @@ export class CalendarListComponent implements OnInit {
   }
 
   private showEvents() {
+    this.eventService.setEvents(this.activatedRoute.snapshot.data.events);
     this.events = this.eventService.sortEvents(
       this.activatedRoute.snapshot.data.events
     );
-    console.log(this.events);
   }
 }
