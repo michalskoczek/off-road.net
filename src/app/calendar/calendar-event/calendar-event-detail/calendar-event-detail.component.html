@@ -36,7 +36,12 @@
   <div class="col-md-5">
     <div class="row event-details">
       <div class="col-md-10">
-        <img src="{{ event.image }}" alt="off-road" class="event-img" />
+        <img
+          *ngIf="isImage"
+          src="{{ event.image }}"
+          alt="off-road"
+          class="event-img"
+        />
       </div>
     </div>
     <div class="row event-details">

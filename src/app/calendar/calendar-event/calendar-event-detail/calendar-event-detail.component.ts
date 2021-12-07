@@ -13,6 +13,7 @@ export class CalendarEventDetailComponent implements OnInit {
   event: Event;
   id: number;
   participationElement: number[];
+  isImage: boolean = false;
 
   constructor(
     private eventService: EventService,
@@ -24,10 +25,17 @@ export class CalendarEventDetailComponent implements OnInit {
     this.activatedRoute.params.subscribe((params: Params) => {
       this.id = +params['id'];
       this.event = this.eventService.getEvent(this.id);
+      this.isImagePath(this.event);
     });
   }
 
   onResetParticipation() {
     this.eventService.participation;
+  }
+
+  private isImagePath(event: Event) {
+    if (event.image.length > 0) {
+      this.isImage = true;
+    }
   }
 }
