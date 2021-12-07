@@ -34,6 +34,9 @@ const appRoutes: Routes = [
           {
             path: ':id',
             component: CalendarEventDetailComponent,
+            resolve: {
+              events: CalendarListResolver,
+            },
           },
           {
             path: ':id/edit',
