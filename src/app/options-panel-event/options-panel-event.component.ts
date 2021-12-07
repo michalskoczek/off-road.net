@@ -14,6 +14,7 @@ export class OptionsPanelEventComponent implements OnInit {
   buttons: string[];
   options: string[];
   index: number;
+  isLogin: boolean = false;
 
   constructor(
     private optionsService: OptionsPanelService,
