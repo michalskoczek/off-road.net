@@ -16,10 +16,11 @@ export class EventsStorageService {
       .pipe(
         map((responseData) => {
           const eventsArray = [];
-          for (const key in responseData)
+          for (const key in responseData) {
             if (responseData.hasOwnProperty(key)) {
               eventsArray.push({ ...responseData[key], id: key });
             }
+          }
           return eventsArray;
         })
       );
@@ -32,9 +33,5 @@ export class EventsStorageService {
         eventSubmitted
       )
       .subscribe((responseData) => console.log(responseData));
-  }
-
-  getEvent() {
-   return this.http.get<{ [key: string]: Event }>(`https://off-road-net-default-rtdb.europe-west1.firebasedatabase.app/events.json`)
   }
 }

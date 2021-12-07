@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Event } from '../shared/event.model';
-import { EventsStorageService } from './events-storage.service';
 
 @Injectable({ providedIn: 'root' })
 export class EventService {
-  constructor(private eventsStorageService: EventsStorageService) {}
+  eventsChanged = new Subject<Event[]>();
+
+  constructor() {}
 
   private events: Event[] = [];
 
@@ -12,6 +14,15 @@ export class EventService {
 
   get participation() {
     return (this.isParticipation = [false, false, false]);
+  }
+
+  get eventsList() {
+    return this.sortEvents(this.events);
+  }
+
+  setEvents(events: Event[]) {
+    this.events = events;
+    this.eventsChanged.next(this.events.slice());
   }
 
   getSortedEvents() {
