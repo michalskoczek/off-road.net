@@ -1,10 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
 import { EventService } from '../../event.service';
 import { Event } from '../../../shared/event.model';
-import { Subscription } from 'rxjs';
-import { EventsStorageService } from '../../events-storage.service';
 
 @Component({
   selector: 'app-calendar-event-detail',
@@ -12,36 +10,22 @@ import { EventsStorageService } from '../../events-storage.service';
   styleUrls: ['./calendar-event-detail.component.css'],
 })
 export class CalendarEventDetailComponent implements OnInit {
-  event: any;
+  event: Event;
   id: number;
-  subscription: Subscription;
   participationElement: number[];
 
   constructor(
     private eventService: EventService,
-    private activatedRoute: ActivatedRoute,
-    private eventsStorageService: EventsStorageService
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    // this.subscription = this.activatedRoute.params.subscribe(
-    //   (params: Params) => {
-    //     this.id = +params['id'];
-    //     this.event = this.eventService.getEvent(this.id);
-    //     this.event = this.eventsStorageService.getEvent()
-    //     this.participationElement = this.eventService.getEventParticipation(
-    //       this.id
-    //     );
-    //   }
-    // );
-
-    this.event = this.activatedRoute.snapshot.data.event;
-    console.log(this.event)
+    this.eventService.setEvents(this.activatedRoute.snapshot.data.events);
+    this.activatedRoute.params.subscribe((params: Params) => {
+      this.id = +params['id'];
+      this.event = this.eventService.getEvent(this.id);
+    });
   }
-
-  // ngOnDestroy() {
-  //   this.subscription.unsubscribe();
-  // }
 
   onResetParticipation() {
     this.eventService.participation;
