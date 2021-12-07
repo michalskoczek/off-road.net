@@ -13,6 +13,7 @@ export class CalendarEventDetailComponent implements OnInit {
   event: Event;
   id: number;
   participationElement: number[];
+  isImage: boolean = false;
 
   constructor(
     private eventService: EventService,
