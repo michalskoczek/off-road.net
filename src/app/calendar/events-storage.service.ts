@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 
 import { Event } from '../shared/event.model';
 
@@ -32,6 +33,8 @@ export class EventsStorageService {
         'https://off-road-net-default-rtdb.europe-west1.firebasedatabase.app/events.json',
         eventSubmitted
       )
-      .subscribe((responseData) => console.log(responseData));
+      .subscribe((responseData) => {
+        console.log(responseData);
+      });
   }
 }
