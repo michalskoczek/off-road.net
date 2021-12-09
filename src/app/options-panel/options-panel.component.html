@@ -1,6 +1,7 @@
 <div class="options-panel">
   <div class="options-panel__buttons">
     <button
+      *ngIf="isLogin"
       class="options-panel__option options-panel__button"
       routerLink="/calendar/create-event"
     >
