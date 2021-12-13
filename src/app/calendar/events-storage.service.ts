@@ -1,40 +1,56 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponseBase } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { Router } from '@angular/router';
+
+import { EMPTY, Observable, throwError } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 
 import { Event } from '../shared/event.model';
 
 @Injectable({ providedIn: 'root' })
 export class EventsStorageService {
-  constructor(private http: HttpClient) {}
+  private eventsUrl: string =
+    'https://off-road-net-default-rtdb.europe-west1.firebasedatabase.app/events.json';
 
-  getEvents() {
-    return this.http
-      .get<{ [key: string]: Event }>(
-        'https://off-road-net-default-rtdb.europe-west1.firebasedatabase.app/events.json'
-      )
-      .pipe(
-        map((responseData) => {
-          const eventsArray = [];
-          for (const key in responseData) {
-            if (responseData.hasOwnProperty(key)) {
-              eventsArray.push({ ...responseData[key], id: key });
-            }
+  constructor(private http: HttpClient, private router: Router) {}
+
+  getEvents(): Observable<Event[]> {
+    return this.http.get<{ [key: string]: Event }>(this.eventsUrl).pipe(
+      map((responseData) => {
+        const eventsArray = [];
+        for (const key in responseData) {
+          if (responseData.hasOwnProperty(key)) {
+            eventsArray.push({ ...responseData[key], id: key });
           }
-          return eventsArray;
+        }
+        return eventsArray;
+      }),
+      catchError((error) => {
+        this.router.navigateByUrl('/error');
+        return EMPTY;
+      })
+    );
+  }
+
+  postEvent(eventSubmitted): Observable<{ name: string }> {
+    return this.http
+      .post<{ name: string }>(this.eventsUrl, eventSubmitted)
+      .pipe(
+        tap((data) => console.log(data)),
+        catchError((error) => {
+          this.router.navigateByUrl('/error');
+          return EMPTY;
         })
       );
   }
 
-  postEvent(eventSubmitted) {
-    this.http
-      .post<{ name: string }>(
-        'https://off-road-net-default-rtdb.europe-west1.firebasedatabase.app/events.json',
-        eventSubmitted
-      )
-      .subscribe((responseData) => {
-        console.log(responseData);
-      });
+  private handleError(err: any): Observable<never> {
+    let errorMessage: string;
+    if (err.error instanceof HttpResponseBase) {
+      errorMessage = `An error occurred: ${err.error.error}`;
+    } else {
+      errorMessage = `Backend returned code ${err.status}: ${err.statusText}`;
+    }
+    return throwError(errorMessage);
   }
 }
