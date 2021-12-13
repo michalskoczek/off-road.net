@@ -5,6 +5,9 @@ import {
   ActivatedRouteSnapshot,
 } from '@angular/router';
 import { Observable } from 'rxjs';
+
+import { Event } from 'src/app/shared/event.model';
+
 import { EventsStorageService } from '../events-storage.service';
 
 @Injectable({
@@ -16,7 +19,7 @@ export class CalendarListResolver implements Resolve<Event[]> {
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<Event[]> | Promise<Event[]> | Event[] {
+  ): Observable<Event[]> {
     return this.eventStorageService.getEvents();
   }
 }
