@@ -11,7 +11,7 @@ import { OptionsPanelService } from './options.service';
 export class OptionsPanelComponent implements OnInit {
   options: string[];
   buttons: string[];
-  isLogin: boolean = true;
+  isLogin: boolean = false;
 
   constructor(private optionsService: OptionsPanelService) {}
 
