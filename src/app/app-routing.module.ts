@@ -8,6 +8,7 @@ import { CalendarListComponent } from './calendar/calendar-list/calendar-list.co
 import { CalendarListResolver } from './calendar/calendar-list/calendar-list.resolver';
 import { CalendarComponent } from './calendar/calendar.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
@@ -50,11 +51,16 @@ const appRoutes: Routes = [
         component: CalendarEventFormComponent,
       },
       {
+        path: 'login',
+        component: LoginComponent,
+      },
+      {
         path: '**',
         redirectTo: '../**',
       },
     ],
   },
+
   {
     path: '**',
     component: PageNotFoundComponent,
