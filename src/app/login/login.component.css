@@ -1,0 +1,24 @@
+.button-next {
+  width: 60%;
+  position: relative;
+  font-size: 16px;
+  list-style: none;
+  padding: 1px 10px;
+  margin: 5px 5px 15px;
+  border: 2px solid rgb(252, 175, 20);
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+.button-next::after {
+  position: absolute;
+  content: "";
+  left: 5px;
+  top: 5px;
+  transform: translate(-2px, -2px);
+  height: calc(100% + 4px);
+  width: calc(100% + 4px);
+  border: 2px solid rgba(0, 0, 0, 0.16);
+  border-radius: 5px;
+  background-color: transparent;
+}
