@@ -20,6 +20,7 @@ import { OptionsPanelEventComponent } from './options-panel-event/options-panel-
 import { CalendarEventFormComponent } from './calendar-event-form/calendar-event-form.component';
 import { CalendarEventDetailComponent } from './calendar/calendar-event/calendar-event-detail/calendar-event-detail.component';
 import { CanDeactivateGuard } from './calendar-event-form/can-deactivate-guard.service';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { CanDeactivateGuard } from './calendar-event-form/can-deactivate-guard.s
     OptionsPanelEventComponent,
     CalendarEventFormComponent,
     CalendarEventDetailComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
