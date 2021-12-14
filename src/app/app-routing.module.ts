@@ -10,6 +10,7 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { RegisterComponent } from './register/register.component';
 
 const appRoutes: Routes = [
   {
@@ -53,6 +54,10 @@ const appRoutes: Routes = [
       {
         path: 'login',
         component: LoginComponent,
+      },
+      {
+        path: 'signup',
+        component: RegisterComponent,
       },
       {
         path: '**',
