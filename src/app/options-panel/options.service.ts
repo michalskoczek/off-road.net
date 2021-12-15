@@ -1,5 +1,7 @@
+import { Injectable } from '@angular/core';
 import { Options } from './options.enum';
 
+@Injectable({ providedIn: 'root' })
 export class OptionsPanelService {
   private options: { buttonsName: string[]; optionsName: string[] }[] = [
     {
