@@ -14,6 +14,13 @@
     >
       {{ buttons[1] }}
     </button>
+    <button
+      class="options-panel__option options-panel__button"
+      routerLink="signup"
+      *ngIf="!isLogin"
+    >
+      {{ buttons[2] }}
+    </button>
   </div>
 
   <ul class="options-panel__options-container">
