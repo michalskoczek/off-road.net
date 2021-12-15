@@ -21,6 +21,7 @@ import { CalendarEventFormComponent } from './calendar-event-form/calendar-event
 import { CalendarEventDetailComponent } from './calendar/calendar-event/calendar-event-detail/calendar-event-detail.component';
 import { CanDeactivateGuard } from './calendar-event-form/can-deactivate-guard.service';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { LoginComponent } from './login/login.component';
     CalendarEventFormComponent,
     CalendarEventDetailComponent,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
