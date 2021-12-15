@@ -10,7 +10,7 @@
     <button
       class="options-panel__option options-panel__button"
       routerLink="login"
-      *ngIf="buttons.length > 1"
+      *ngIf="buttons.length > 1 && !isLogin"
     >
       {{ buttons[1] }}
     </button>
