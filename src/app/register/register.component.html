@@ -1,19 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-6 offset-md-3">
-      <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm.value)">
-        <div class="form-group">
-          <label for="nick">Nick</label>
-          <input
-            type="text"
-            name="nick"
-            id="nick"
-            class="form-control"
-            ngModel
-            required
-            minlength="2"
-          />
-        </div>
+      <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
         <div class="form-group">
           <label for="email">Email</label>
           <input
