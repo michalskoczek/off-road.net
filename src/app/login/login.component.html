@@ -1,7 +1,17 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-6 offset-md-3">
-      <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.value)">
+      <div *ngIf="error" class="alert alert-danger">
+        {{ error }}
+      </div>
+      <div *ngIf="isLoading" style="text-align: center">
+        <app-spinner></app-spinner>
+      </div>
+      <form
+        #loginForm="ngForm"
+        (ngSubmit)="onSubmit(loginForm)"
+        *ngIf="!isLoading"
+      >
         <div class="form-group">
           <label for="email">Email</label>
           <input
