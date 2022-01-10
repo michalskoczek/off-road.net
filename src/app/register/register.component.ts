@@ -8,6 +8,9 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
+  isLoading: boolean = false;
+  error: string = null;
+
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {}
@@ -20,9 +23,18 @@ export class RegisterComponent implements OnInit {
     const email = form.value.email;
     const password = form.value.password;
 
+    this.isLoading = true;
+
     this.authService.signup(email, password).subscribe(
-      (res) => console.log(res),
-      (error) => console.log(error)
+      (res) => {
+        console.log(res);
+        this.isLoading = false;
+      },
+      (errorMessage) => {
+        console.log(errorMessage);
+        this.error = errorMessage;
+        this.isLoading = false;
+      }
     );
 
     form.reset();
