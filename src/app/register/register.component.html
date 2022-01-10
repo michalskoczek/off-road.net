@@ -9,10 +9,17 @@
             name="email"
             id="email"
             class="form-control"
-            ngModel
             email
             required
+            #name="ngModel"
+            ngModel
           />
+          <div
+            [hidden]="name.valid || name.pristine"
+            class="alert alert-danger"
+          >
+            Email jest wymagany
+          </div>
         </div>
         <div class="form-group">
           <label for="password">Hasło</label>
@@ -21,15 +28,22 @@
             name="password"
             id="password"
             class="form-control"
-            ngModel
             required
             minlength="8"
+            #password="ngModel"
+            ngModel
           />
+          <div
+            [hidden]="password.valid || password.pristine"
+            class="alert alert-danger"
+          >
+            Hasło jest zbyt krótkie
+          </div>
         </div>
         <button
           class="button-next"
           type="submit"
-          [disabled]="!registerForm.valid"
+          [disabled]="!registerForm.form.valid"
         >
           Zarejestruj
         </button>
