@@ -1,19 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-6 offset-md-3">
-      <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm.value)">
-        <div class="form-group">
-          <label for="nick">Nick</label>
-          <input
-            type="text"
-            name="nick"
-            id="nick"
-            class="form-control"
-            ngModel
-            required
-            minlength="2"
-          />
-        </div>
+      <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
         <div class="form-group">
           <label for="email">Email</label>
           <input
@@ -21,10 +9,17 @@
             name="email"
             id="email"
             class="form-control"
-            ngModel
             email
             required
+            #name="ngModel"
+            ngModel
           />
+          <div
+            [hidden]="name.valid || name.pristine"
+            class="alert alert-danger"
+          >
+            Email jest wymagany
+          </div>
         </div>
         <div class="form-group">
           <label for="password">Hasło</label>
@@ -33,15 +28,22 @@
             name="password"
             id="password"
             class="form-control"
-            ngModel
             required
             minlength="8"
+            #password="ngModel"
+            ngModel
           />
+          <div
+            [hidden]="password.valid || password.pristine"
+            class="alert alert-danger"
+          >
+            Hasło jest zbyt krótkie
+          </div>
         </div>
         <button
           class="button-next"
           type="submit"
-          [disabled]="!registerForm.valid"
+          [disabled]="!registerForm.form.valid"
         >
           Zarejestruj
         </button>
