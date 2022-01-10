@@ -8,6 +8,9 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
+  isLoading: boolean = false;
+  error: string = null;
+
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {}
