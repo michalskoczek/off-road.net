@@ -27,7 +27,7 @@ export class AuthService {
 
   signup(email: string, password: string): Observable<AuthResponseData> {
     return this.http
-      .post<AuthResponseData>(this.signUpApiUrl, {
+      .post<AuthResponseData>(this._signUpApiUrl, {
         email: email,
         password: password,
         returnSecureToken: true,
@@ -37,7 +37,7 @@ export class AuthService {
 
   signin(email: string, password: string): Observable<AuthResponseData> {
     return this.http
-      .post<AuthResponseData>(this.signInApiUrl, {
+      .post<AuthResponseData>(this._signInApiUrl, {
         email: email,
         password: password,
         returnSecureToken: true,
