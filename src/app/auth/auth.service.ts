@@ -17,9 +17,11 @@ interface AuthResponseData {
   providedIn: 'root',
 })
 export class AuthService {
-  private webApiKey: string = 'AIzaSyBOiZVG4Wl1mvp7qToawfnH7sO8xEKK4fs';
-  private signUpApiUrl: string = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${this.webApiKey}`;
-  private signInApiUrl: string = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${this.webApiKey}`;
+  private _webApiKey: string = 'AIzaSyBOiZVG4Wl1mvp7qToawfnH7sO8xEKK4fs';
+  private _signUpApiUrl: string = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${this._webApiKey}`;
+  private _signInApiUrl: string = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${this._webApiKey}`;
+
+  user = new Subject<User>();
 
   constructor(private http: HttpClient) {}
 
