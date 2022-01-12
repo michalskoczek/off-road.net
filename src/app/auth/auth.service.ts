@@ -1,7 +1,8 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Observable, Subject, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
+import { User } from './user.model';
 
 interface AuthResponseData {
   idToken: string;
@@ -16,30 +17,63 @@ interface AuthResponseData {
   providedIn: 'root',
 })
 export class AuthService {
-  private webApiKey: string = 'AIzaSyBOiZVG4Wl1mvp7qToawfnH7sO8xEKK4fs';
-  private signUpApiUrl: string = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${this.webApiKey}`;
-  private signInApiUrl: string = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${this.webApiKey}`;
+  private _webApiKey: string = 'AIzaSyBOiZVG4Wl1mvp7qToawfnH7sO8xEKK4fs';
+  private _signUpApiUrl: string = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${this._webApiKey}`;
+  private _signInApiUrl: string = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${this._webApiKey}`;
+
+  user = new Subject<User>();
 
   constructor(private http: HttpClient) {}
 
   signup(email: string, password: string): Observable<AuthResponseData> {
     return this.http
-      .post<AuthResponseData>(this.signUpApiUrl, {
+      .post<AuthResponseData>(this._signUpApiUrl, {
         email: email,
         password: password,
         returnSecureToken: true,
       })
-      .pipe(catchError(this.handleError));
+      .pipe(
+        catchError(this.handleError),
+        tap((resData) => {
+          this.handleAuthUser(
+            resData.email,
+            resData.localId,
+            resData.idToken,
+            +resData.expiresIn
+          );
+        })
+      );
   }
 
   signin(email: string, password: string): Observable<AuthResponseData> {
     return this.http
-      .post<AuthResponseData>(this.signInApiUrl, {
+      .post<AuthResponseData>(this._signInApiUrl, {
         email: email,
         password: password,
         returnSecureToken: true,
       })
-      .pipe(catchError(this.handleError));
+      .pipe(
+        catchError(this.handleError),
+        tap((resData) => {
+          this.handleAuthUser(
+            resData.email,
+            resData.localId,
+            resData.idToken,
+            +resData.expiresIn
+          );
+        })
+      );
+  }
+
+  private handleAuthUser(
+    email: string,
+    userId: string,
+    token: string,
+    expiresIn: number
+  ) {
+    const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
+    const user = new User(email, userId, token, expirationDate);
+    this.user.next(user);
   }
 
   private handleError(errorRes: HttpErrorResponse) {
