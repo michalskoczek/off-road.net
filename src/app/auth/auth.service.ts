@@ -1,8 +1,9 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { User } from './user.model';
+import { webApiKey } from '../shared/private-properties';
 
 interface AuthResponseData {
   idToken: string;
@@ -17,11 +18,11 @@ interface AuthResponseData {
   providedIn: 'root',
 })
 export class AuthService {
-  private _webApiKey: string = 'AIzaSyBOiZVG4Wl1mvp7qToawfnH7sO8xEKK4fs';
+  private _webApiKey: string = webApiKey;
   private _signUpApiUrl: string = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${this._webApiKey}`;
   private _signInApiUrl: string = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${this._webApiKey}`;
 
-  user = new Subject<User>();
+  user = new BehaviorSubject<User>(null);
 
   constructor(private http: HttpClient) {}
 
