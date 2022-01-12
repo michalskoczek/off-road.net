@@ -32,7 +32,17 @@ export class AuthService {
         password: password,
         returnSecureToken: true,
       })
-      .pipe(catchError(this.handleError));
+      .pipe(
+        catchError(this.handleError),
+        tap((resData) => {
+          this.handleAuthUser(
+            resData.email,
+            resData.localId,
+            resData.idToken,
+            +resData.expiresIn
+          );
+        })
+      );
   }
 
   signin(email: string, password: string): Observable<AuthResponseData> {
