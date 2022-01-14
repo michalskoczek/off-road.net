@@ -84,7 +84,7 @@ export class AuthService {
   }
 
   private handleError(errorRes: HttpErrorResponse) {
-    let errorMessage = 'Pojawił się nieznany błąd. Spróbuj ponownie.';
+    let errorMessage = 'Pojawił się nieznany błąd. Spróbuj ponownie(1).';
     if (!errorRes.error || !errorRes.error.error) {
       return throwError(errorMessage);
     }

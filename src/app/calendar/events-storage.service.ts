@@ -20,13 +20,7 @@ export class EventsStorageService {
   ) {}
 
   getEvents(): Observable<Event[]> {
-    return this.authService.user.pipe(
-      take(1),
-      exhaustMap((user) => {
-        return this.http.get<{ [key: string]: Event }>(this.eventsUrl, {
-          params: new HttpParams().set('auth', user.token),
-        });
-      }),
+    return this.http.get<{ [key: string]: Event }>(this.eventsUrl).pipe(
       map((responseData) => {
         const eventsArray = [];
         for (const key in responseData) {
