@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
 
 @Component({
@@ -11,13 +12,11 @@ export class RegisterComponent implements OnInit {
   isLoading: boolean = false;
   error: string = null;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
 
   onSubmit(form: NgForm) {
-    console.log(form.valid);
-
     if (!form.valid) return;
 
     const email = form.value.email;
@@ -25,17 +24,16 @@ export class RegisterComponent implements OnInit {
 
     this.isLoading = true;
 
-    this.authService.signup(email, password).subscribe(
-      (res) => {
-        console.log(res);
+    this.authService.signup(email, password).subscribe({
+      next: (res) => {
         this.isLoading = false;
+        this.router.navigate(['/calendar']);
       },
-      (errorMessage) => {
-        console.log(errorMessage);
+      error: (errorMessage) => {
         this.error = errorMessage;
         this.isLoading = false;
-      }
-    );
+      },
+    });
 
     form.reset();
   }

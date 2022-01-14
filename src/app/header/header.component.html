@@ -16,7 +16,7 @@
   </button>
   <div class="collapse navbar-collapse nav-container" id="navbarNav">
     <ul class="navbar-nav nav-container-ul">
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="isAuthenticated">
         <a class="nav-link link-name" routerLink="/calendar">Kalendarz</a>
       </li>
       <li class="nav-item">
@@ -27,6 +27,12 @@
       </li>
       <li class="nav-item">
         <a class="nav-link link-name">Blogi | Ekipy</a>
+      </li>
+      <li class="nav-item">
+        <button class="btn btn-secondary" routerLink="/login">Zaloguj</button>
+      </li>
+      <li class="nav-item" *ngIf="isAuthenticated">
+        <button type="button" class="btn btn-danger">Wyloguj</button>
       </li>
     </ul>
   </div>
