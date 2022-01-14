@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth/auth.guard';
 import { CalendarEventFormComponent } from './calendar-event-form/calendar-event-form.component';
 import { CanDeactivateGuard } from './calendar-event-form/can-deactivate-guard.service';
 import { CalendarEventDetailComponent } from './calendar/calendar-event/calendar-event-detail/calendar-event-detail.component';
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
   {
     path: 'calendar',
     component: CalendarComponent,
+    canActivate: [AuthGuard],
     resolve: {
       events: CalendarListResolver,
     },
