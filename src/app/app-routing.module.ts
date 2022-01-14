@@ -51,10 +51,7 @@ const appRoutes: Routes = [
         path: 'create-event',
         component: CalendarEventFormComponent,
       },
-      {
-        path: 'login',
-        component: LoginComponent,
-      },
+
       {
         path: 'signup',
         component: RegisterComponent,
@@ -64,6 +61,10 @@ const appRoutes: Routes = [
         redirectTo: '../**',
       },
     ],
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
   },
 
   {
