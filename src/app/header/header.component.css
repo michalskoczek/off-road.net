@@ -1,23 +1,33 @@
-.navbar-paddings {
-  margin-bottom: 10px !important;
+.navbar-width {
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .header-clickable {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
   cursor: pointer;
 }
 
 .header-title {
+  margin: 0;
   font-size: 28px;
   font-family: "Permanent Marker", cursive;
   color: #000;
 }
 
 .header-subtitle {
-  display: none;
+  font-size: 12px;
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  color: #777;
 }
 
-.link-name {
-  font-size: 16px;
+.link-name,
+.link-name-login {
+  padding: 3px;
+  font-size: 14px;
   font-family: "Open Sans", sans-serif;
   letter-spacing: 0.7px;
   color: #000 !important;
@@ -27,36 +37,45 @@
   border: none;
 }
 
+.logout-button {
+  margin: 0 0;
+  padding: 3px 10px;
+  font-size: 14px;
+  list-style: none;
+  letter-spacing: 0.7px;
+  border: 1px solid rgb(252, 175, 20);
+  border-radius: 5px;
+  background-color: rgb(252, 175, 20);
+}
+
 @media (min-width: 768px) {
-  .header-clickable {
-    display: flex;
-    align-items: center;
-    padding: 0;
+  .navbar-width {
+    max-width: 85%;
   }
 
   .header-title {
-    font-size: 38px;
+    font-size: 34px;
   }
 
   .header-subtitle {
-    display: block;
-    font-size: 16px;
-    font-family: "Open Sans", sans-serif;
-    color: #777;
-    margin: 10px 0 0 15px;
+    font-size: 14px;
   }
 
   .nav-container-ul {
     width: 100%;
-    justify-content: space-evenly;
+    justify-content: center;
+    padding: 10px 0;
+  }
+
+  .nav-container-buttons {
+    justify-content: space-between;
+    width: 30%;
     padding: 10px 0;
   }
 
   .link-name {
-    padding: 3px;
-    font-size: 20px;
-    letter-spacing: 0.8px;
     border-bottom: 2px solid transparent;
+    cursor: pointer;
   }
 
   .nav-item:nth-child(1) .link-name:hover {
@@ -76,12 +95,27 @@
   }
 }
 
+@media (min-width: 1200px) {
+  .link-name {
+    margin: 0 10px;
+  }
+}
+
 @media (min-width: 1400px) {
+  .navbar-width {
+    max-width: 75%;
+  }
+
   .header-title {
-    font-size: 48px;
+    font-size: 42px;
   }
 
   .header-subtitle {
+    font-size: 16px;
+  }
+
+  .link-name {
     font-size: 18px;
+    margin: 0 15px;
   }
 }
