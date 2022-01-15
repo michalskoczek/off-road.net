@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth/auth.guard';
+import { AutoServicesComponent } from './auto-services/auto-services.component';
+import { BlogsComponent } from './blogs/blogs.component';
 import { CalendarEventFormComponent } from './calendar-event-form/calendar-event-form.component';
 import { CanDeactivateGuard } from './calendar-event-form/can-deactivate-guard.service';
 import { CalendarEventDetailComponent } from './calendar/calendar-event/calendar-event-detail/calendar-event-detail.component';
@@ -12,6 +14,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegisterComponent } from './register/register.component';
+import { StoresComponent } from './stores/stores.component';
 
 const appRoutes: Routes = [
   {
@@ -22,7 +25,7 @@ const appRoutes: Routes = [
   {
     path: 'calendar',
     component: CalendarComponent,
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     resolve: {
       events: CalendarListResolver,
     },
@@ -63,6 +66,18 @@ const appRoutes: Routes = [
         redirectTo: '../**',
       },
     ],
+  },
+  {
+    path: 'services',
+    component: AutoServicesComponent,
+  },
+  {
+    path: 'stores',
+    component: StoresComponent,
+  },
+  {
+    path: 'blogs',
+    component: BlogsComponent,
   },
   {
     path: 'login',
