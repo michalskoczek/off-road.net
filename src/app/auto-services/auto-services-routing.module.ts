@@ -4,7 +4,7 @@ import { AutoServicesComponent } from './auto-services.component';
 
 const routes: Routes = [
   {
-    path: 'services',
+    path: '',
     component: AutoServicesComponent,
   },
 ];
