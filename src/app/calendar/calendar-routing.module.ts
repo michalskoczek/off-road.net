@@ -11,7 +11,7 @@ import { CalendarComponent } from './calendar.component';
 
 const routes: Routes = [
   {
-    path: 'calendar',
+    path: '',
     component: CalendarComponent,
     // canActivate: [AuthGuard],
     resolve: {

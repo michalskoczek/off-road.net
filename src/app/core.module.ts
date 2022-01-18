@@ -1,5 +1,6 @@
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import '@angular/common/locales/global/pl';
 
 import { CanDeactivateGuard } from './calendar-event-form/can-deactivate-guard.service';
 import { AuthInterceptor } from './auth/auth.interceptor';

@@ -12,7 +12,7 @@ import { CalendarEventFormComponent } from '../calendar-event-form/calendar-even
 import { CalendarEventDetailComponent } from './calendar-event/calendar-event-detail/calendar-event-detail.component';
 import { OptionsPanelComponent } from '../options-panel/options-panel.component';
 import { OptionsPanelEventComponent } from '../options-panel-event/options-panel-event.component';
-import { HeaderComponent } from '../header/header.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,6 @@ import { HeaderComponent } from '../header/header.component';
     CalendarEventDetailComponent,
     OptionsPanelComponent,
     OptionsPanelEventComponent,
-    HeaderComponent,
   ],
   imports: [
     CommonModule,
@@ -31,6 +30,7 @@ import { HeaderComponent } from '../header/header.component';
     ReactiveFormsModule,
     HttpClientModule,
     CalendarRoutingModule,
+    SharedModule,
   ],
 })
 export class CalendarModule {}
