@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 import { HomepageComponent } from './homepage/homepage.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
   {
@@ -10,16 +9,36 @@ const appRoutes: Routes = [
     component: HomepageComponent,
     pathMatch: 'full',
   },
-
-  // {
-  //   path: '**',
-  //   component: PageNotFoundComponent,
-  //   data: { errorMessage: 'Page not found!' },
-  // },
+  {
+    path: 'calendar',
+    loadChildren: () =>
+      import('./calendar/calendar.module').then((m) => m.CalendarModule),
+  },
+  {
+    path: 'services',
+    loadChildren: () =>
+      import('./auto-services/auto-services.module').then(
+        (m) => m.AutoServicesModule
+      ),
+  },
+  {
+    path: 'blogs',
+    loadChildren: () =>
+      import('./blogs/blogs.module').then((m) => m.BlogsModule),
+  },
+  {
+    path: 'stores',
+    loadChildren: () =>
+      import('./stores/stores.module').then((m) => m.StoresModule),
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes)],
+  imports: [
+    RouterModule.forRoot(appRoutes, {
+      preloadingStrategy: PreloadAllModules,
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
