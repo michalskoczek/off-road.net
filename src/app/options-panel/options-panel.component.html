@@ -9,14 +9,14 @@
     </button>
     <button
       class="options-panel__option options-panel__button"
-      routerLink="login"
+      routerLink="/login"
       *ngIf="buttons.length > 1 && !isLogin"
     >
       {{ buttons[1] }}
     </button>
     <button
       class="options-panel__option options-panel__button"
-      routerLink="signup"
+      routerLink="/signup"
       *ngIf="!isLogin"
     >
       {{ buttons[2] }}
