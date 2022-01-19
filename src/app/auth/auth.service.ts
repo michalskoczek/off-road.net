@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { User } from './user.model';
-import { webApiKey } from '../shared/private-properties';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 interface AuthResponseData {
   idToken: string;
@@ -19,7 +19,7 @@ interface AuthResponseData {
   providedIn: 'root',
 })
 export class AuthService {
-  private _webApiKey: string = webApiKey;
+  private _webApiKey: string = environment.webApiKey;
   private _signUpApiUrl: string = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${this._webApiKey}`;
   private _signInApiUrl: string = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${this._webApiKey}`;
 
