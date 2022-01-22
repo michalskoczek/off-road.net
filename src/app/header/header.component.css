@@ -74,6 +74,7 @@
   }
 
   .link-name {
+    margin: 0 10px;
     border-bottom: 2px solid transparent;
     cursor: pointer;
   }
@@ -97,7 +98,7 @@
 
 @media (min-width: 1200px) {
   .link-name {
-    margin: 0 10px;
+    margin: 0 15px;
   }
 }
 
@@ -116,6 +117,5 @@
 
   .link-name {
     font-size: 18px;
-    margin: 0 15px;
   }
 }
