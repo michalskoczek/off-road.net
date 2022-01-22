@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth/auth.service';
 
 import { OptionsPanelService } from './options.service';
 
@@ -9,14 +10,23 @@ import { OptionsPanelService } from './options.service';
   providers: [OptionsPanelService],
 })
 export class OptionsPanelComponent implements OnInit {
-  options: string[];
-  buttons: string[];
+  clientAndUserOptions: { typeOfEvent: string[]; placeOfEvent: string[] };
+  adminOptions: string[];
   isLogin: boolean = false;
 
-  constructor(private optionsService: OptionsPanelService) {}
+  constructor(
+    private optionsService: OptionsPanelService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
-    this.buttons = this.optionsService.getButtonsCalendar();
-    this.options = this.optionsService.getOptionsCalendar();
+    this.clientAndUserOptions = this.optionsService.getClientAndUserOptions();
+    this.adminOptions = this.optionsService.getAdminOptions();
+
+    this.authService.user.subscribe((user) => {
+      if (user) {
+        this.isLogin = !this.isLogin;
+      }
+    });
   }
 }

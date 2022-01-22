@@ -1,12 +1,12 @@
 .options-panel {
+  display: flex;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   background-color: #eee;
   padding: 0;
-  display: flex;
-  justify-content: space-evenly;
 }
 
-.options-panel__buttons {
+.options-panel__button {
   display: flex;
   padding: 10px 0;
 }
@@ -20,7 +20,7 @@
 
 .options-panel__option {
   position: relative;
-  font-size: 14px;
+  font-size: 12px;
   list-style: none;
   padding: 3px 10px;
   margin: 0 5px;
@@ -30,56 +30,31 @@
 }
 
 @media (min-width: 768px) {
+  .options-panel.options-panel-client {
+    justify-content: flex-end;
+  }
+
   .options-panel {
-    flex-wrap: nowrap;
     justify-content: space-between;
-    box-shadow: 0 -5px 3px -3px #777, 0 5px 3px -3px #777;
-    background-color: transparent;
-  }
-
-  .options-panel__options-container {
-    max-width: 50%;
-    margin: 0 35px 0 0;
-  }
-
-  .options-panel__option {
-    font-size: 16px;
-    margin: auto 15px;
-    padding: 1px 10px;
-    background-color: transparent;
-    cursor: pointer;
-  }
-
-  .options-panel__option::after {
-    position: absolute;
-    content: "";
-    left: 5px;
-    top: 5px;
-    transform: translate(-2px, -2px);
-    height: calc(100% + 4px);
-    width: calc(100% + 4px);
-    border: 2px solid rgba(0, 0, 0, 0.16);
-    border-radius: 5px;
-    background-color: transparent;
   }
 
   .options-panel__button {
-    display: block;
-    margin: auto 0 auto 25px;
+    margin: auto 0 auto 80px;
   }
 
-  .options-panel__button:nth-child(1) {
-    margin: auto 0 auto 35px;
+  .options-panel__option {
+    margin: 0 10px;
+    font-size: 14px;
+  }
+
+  .options-panel__options-container {
+    margin: auto 80px auto 0;
   }
 }
 
 @media (min-width: 1400px) {
-  .options-panel__options-container {
-    margin: 0 50px 0 0;
-  }
-
   .options-panel__option {
     font-size: 18px;
-    margin: auto 25px;
+    margin: auto 15px;
   }
 }

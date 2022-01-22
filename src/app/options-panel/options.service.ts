@@ -1,32 +1,45 @@
 import { Injectable } from '@angular/core';
-import { Options } from './options.enum';
+import { AdminOptions, Options } from './options-panel.model';
 
 @Injectable({ providedIn: 'root' })
 export class OptionsPanelService {
-  private options: { buttonsName: string[]; optionsName: string[] }[] = [
-    {
-      buttonsName: ['Nowe wydarzenie', 'Zaloguj', 'Zarejestruj'],
-      optionsName: ['rajdy', 'wyprawy', 'turystyka', 'wyścigi'],
+  private clientAndUserOptions: Options = {
+    optionsName: {
+      typeOfEvent: ['rajdy', 'wyprawy', 'turystyka', 'wyścigi'],
+      placeOfEvent: [''],
     },
-    {
-      buttonsName: ['Edytuj', 'Usuń'],
-      optionsName: ['Wezmę udział', 'Może', 'Nie wezmę udziału'],
+    eventOptionsName: {
+      favourite: 'Dodaj do ulubionych',
+      participation: ['Wezmę udział', 'Może', 'Nie wezmę udziału'],
     },
-  ];
+  };
 
-  getOptionsCalendar() {
-    return this.options[Options.Calendar].optionsName.slice();
+  private adminOptions: AdminOptions = {
+    optionsName: {
+      typeOfEvent: ['rajdy', 'wyprawy', 'turystyka', 'wyścigi'],
+      placeOfEvent: [''],
+    },
+    eventOptionsName: {
+      favourite: 'Dodaj do ulubionych',
+      participation: ['Wezmę udział', 'Może', 'Nie wezmę udziału'],
+    },
+    adminOptionsName: ['Nowe wydarzenie'],
+    adminEventOptionsName: ['Edytuj', 'Usuń'],
+  };
+
+  getClientAndUserOptions() {
+    return this.clientAndUserOptions.optionsName;
   }
 
-  getButtonsCalendar() {
-    return this.options[Options.Calendar].buttonsName.slice();
+  getClientAndUserEventOptions() {
+    return this.clientAndUserOptions.eventOptionsName;
   }
 
-  getOptionsCalendarEvent() {
-    return this.options[Options.CalendarEvent].optionsName.slice();
+  getAdminOptions() {
+    return this.adminOptions.adminOptionsName;
   }
 
-  getButtonsCalendarEvent() {
-    return this.options[Options.CalendarEvent].buttonsName.slice();
+  getAdminEventOptions() {
+    return this.adminOptions.adminEventOptionsName;
   }
 }
