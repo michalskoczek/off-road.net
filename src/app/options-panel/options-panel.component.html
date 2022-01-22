@@ -1,30 +1,26 @@
-<div class="options-panel">
-  <div class="options-panel__buttons">
-    <button
-      *ngIf="isLogin"
-      class="options-panel__option options-panel__button"
-      routerLink="/calendar/create-event"
+<div *ngIf="!isLogin" class="options-panel options-panel-client">
+  <ul class="options-panel__options-container">
+    <li
+      *ngFor="let option of clientAndUserOptions.typeOfEvent"
+      class="options-panel__option"
     >
-      {{ buttons[0] }}
-    </button>
-    <button
-      class="options-panel__option options-panel__button"
-      routerLink="/login"
-      *ngIf="buttons.length > 1 && !isLogin"
-    >
-      {{ buttons[1] }}
-    </button>
-    <button
-      class="options-panel__option options-panel__button"
-      routerLink="/signup"
-      *ngIf="!isLogin"
-    >
-      {{ buttons[2] }}
+      {{ option }}
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="isLogin" class="options-panel">
+  <div class="options-panel__button">
+    <button class="options-panel__option" routerLink="/calendar/create-event">
+      {{ adminOptions[0] }}
     </button>
   </div>
 
   <ul class="options-panel__options-container">
-    <li *ngFor="let option of options" class="options-panel__option">
+    <li
+      *ngFor="let option of clientAndUserOptions.typeOfEvent"
+      class="options-panel__option"
+    >
       {{ option }}
     </li>
   </ul>
