@@ -30,8 +30,13 @@
       </li>
     </ul>
     <ul class="navbar-nav nav-container-buttons">
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!isAuthenticated">
         <a class="nav-link link-name-login" routerLink="/login">Zaloguj się</a>
+      </li>
+      <li class="nav-item" *ngIf="!isAuthenticated">
+        <a class="nav-link link-name-login" routerLink="/register"
+          >Zarejestruj</a
+        >
       </li>
       <li class="nav-item" *ngIf="isAuthenticated">
         <button type="button" class="logout-button" (click)="onLogout()">

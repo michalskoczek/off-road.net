@@ -11,6 +11,7 @@
         #registerForm="ngForm"
         (ngSubmit)="onSubmit(registerForm)"
         *ngIf="!isLoading"
+        class="form-container"
       >
         <div class="form-group">
           <label for="email">Email</label>
@@ -26,7 +27,7 @@
           />
           <div
             [hidden]="name.valid || name.pristine"
-            class="alert alert-danger"
+            class="alert alert-danger alert-info"
           >
             Email jest wymagany
           </div>
@@ -45,7 +46,7 @@
           />
           <div
             [hidden]="password.valid || password.pristine"
-            class="alert alert-danger"
+            class="alert alert-danger alert-info"
           >
             Hasło jest zbyt krótkie
           </div>
