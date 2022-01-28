@@ -14,16 +14,17 @@
         <h3 class="event-title">{{ event.name }}</h3>
       </div>
     </div>
+
     <div class="row event-details">
-      <div class="col-2 col-md-2">
-        <p>Miejsce</p>
-        <p>Termin</p>
-        <p>Typ</p>
-        <p>Organizator</p>
-        <p>Koszt</p>
-        <p>Opis</p>
+      <div class="col-4 col-md-4 event-details__properties">
+        <p>Miejsce:</p>
+        <p>Termin:</p>
+        <p>Typ:</p>
+        <p>Organizator:</p>
+        <p>Koszt:</p>
+        <p>Opis:</p>
       </div>
-      <div class="col-8 offset-2 col-md-9 offset-md-0">
+      <div class="col-8 col-md-8 event-details__properties">
         <p>{{ event.location }}</p>
         <p>{{ event.date | date: "EEEE, dd.MM.YYYY" }}</p>
         <p>{{ event.type }}</p>
