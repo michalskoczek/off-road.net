@@ -9,7 +9,7 @@ import { EventService } from '../event.service';
   styleUrls: ['./calendar-list.component.css'],
 })
 export class CalendarListComponent implements OnInit {
-  events: Event[];
+  events!: Event[];
   isFetching: boolean = false;
 
   constructor(
@@ -21,7 +21,7 @@ export class CalendarListComponent implements OnInit {
     this.showEvents();
   }
 
-  displayMonths(event: Event, index) {
+  displayMonths(event: Event, index: any): any {
     if (index === 0) {
       return true;
     } else if (index > 0) {
@@ -33,9 +33,9 @@ export class CalendarListComponent implements OnInit {
   }
 
   private showEvents() {
-    this.eventService.setEvents(this.activatedRoute.snapshot.data.events);
+    this.eventService.setEvents(this.activatedRoute.snapshot.data['events']);
     this.events = this.eventService.sortEvents(
-      this.activatedRoute.snapshot.data.events
+      this.activatedRoute.snapshot.data['events']
     );
   }
 }

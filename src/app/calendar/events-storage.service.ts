@@ -37,7 +37,7 @@ export class EventsStorageService {
     );
   }
 
-  postEvent(eventSubmitted): Observable<{ name: string }> {
+  postEvent(eventSubmitted: any): Observable<{ name: string }> {
     return this.http
       .post<{ name: string }>(this.eventsUrl, eventSubmitted)
       .pipe(

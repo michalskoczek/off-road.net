@@ -15,11 +15,11 @@ import { CanComponentDeactivate } from './can-deactivate-guard.service';
 export class CalendarEventFormComponent
   implements OnInit, CanComponentDeactivate
 {
-  formTitle: string;
-  btnFormTitle: string;
+  formTitle!: string;
+  btnFormTitle!: string;
   editMode = false;
-  eventForm: FormGroup;
-  index: number;
+  eventForm!: FormGroup;
+  index!: number;
   changesSaved: boolean = false;
   defaultParticipationValue: number[] = [0, 0, 0];
 

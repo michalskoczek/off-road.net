@@ -7,7 +7,7 @@ import { ActivatedRoute, Data } from '@angular/router';
   styleUrls: ['./page-not-found.component.css'],
 })
 export class PageNotFoundComponent implements OnInit {
-  errorMessage: string;
+  errorMessage!: string;
 
   constructor(private activatedRoute: ActivatedRoute) {}
 

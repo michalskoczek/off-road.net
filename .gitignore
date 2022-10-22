@@ -52,3 +52,6 @@ Thumbs.db
 firebase.json
 .firebaserc
 /.firebase
+
+# angular-cache
+/.angular

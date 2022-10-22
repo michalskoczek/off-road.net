@@ -23,7 +23,7 @@ export class AuthService {
   private _signUpApiUrl: string = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${this._webApiKey}`;
   private _signInApiUrl: string = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${this._webApiKey}`;
 
-  user = new BehaviorSubject<User>(null);
+  user: BehaviorSubject<any> = new BehaviorSubject<any>(null);
   private tokenExpirationTimer: any;
 
   constructor(private http: HttpClient, private router: Router) {}
@@ -74,7 +74,7 @@ export class AuthService {
       id: string;
       _token: string;
       _tokenExpirationDate: string;
-    } = JSON.parse(localStorage.getItem('userData'));
+    } = JSON.parse(String(localStorage.getItem('userData')));
 
     if (!userData) return;
 
@@ -95,7 +95,6 @@ export class AuthService {
   }
 
   logout() {
-    this.user.next(null);
     this.router.navigate(['/']);
     localStorage.removeItem('userData');
     if (this.tokenExpirationTimer) {
