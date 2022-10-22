@@ -13,7 +13,7 @@
           <input type="text" class="form-control" formControlName="name" />
           <small
             *ngIf="
-              eventForm.get('name').touched && eventForm.get('name').invalid
+              eventForm.get('name')?.touched && eventForm.get('name')?.invalid
             "
             class="small-disclaimer"
             >Nazwa jest wymagana</small
@@ -29,8 +29,8 @@
           <input type="text" class="form-control" formControlName="organizer" />
           <small
             *ngIf="
-              eventForm.get('organizer').touched &&
-              eventForm.get('organizer').invalid
+              eventForm.get('organizer')?.touched &&
+              eventForm.get('organizer')?.invalid
             "
             class="small-disclaimer"
             >Organizator jest wymagany</small
@@ -48,7 +48,7 @@
             formControlName="date" />
           <small
             *ngIf="
-              eventForm.get('date').touched && eventForm.get('date').invalid
+              eventForm.get('date')?.touched && eventForm.get('date')?.invalid
             "
             class="small-disclaimer"
             >Termin jest wymagany</small
@@ -100,7 +100,7 @@
           </div>
           <small
             *ngIf="
-              eventForm.get('type').touched && eventForm.get('type').invalid
+              eventForm.get('type')?.touched && eventForm.get('type')?.invalid
             "
             class="small-disclaimer"
             >Typ jest wymagany</small
@@ -116,8 +116,8 @@
           <input type="text" class="form-control" formControlName="location" />
           <small
             *ngIf="
-              eventForm.get('location').touched &&
-              eventForm.get('location').invalid
+              eventForm.get('location')?.touched &&
+              eventForm.get('location')?.invalid
             "
             class="small-disclaimer"
             >Lokalizacja jest wymagana</small
@@ -131,7 +131,7 @@
           <input type="number" class="form-control" formControlName="cost" />
           <small
             *ngIf="
-              eventForm.get('cost').touched && eventForm.get('cost').invalid
+              eventForm.get('cost')?.touched && eventForm.get('cost')?.invalid
             "
             class="small-disclaimer"
             >Koszt jest wymagany</small
@@ -148,8 +148,8 @@
           rows="3"></textarea>
         <small
           *ngIf="
-            eventForm.get('description').touched &&
-            eventForm.get('description').invalid
+            eventForm.get('description')?.touched &&
+            eventForm.get('description')?.invalid
           "
           class="small-disclaimer"
           >Opis jest wymagany</small

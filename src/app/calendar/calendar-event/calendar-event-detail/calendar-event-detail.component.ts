@@ -10,9 +10,9 @@ import { Event } from '../../../shared/event.model';
   styleUrls: ['./calendar-event-detail.component.css'],
 })
 export class CalendarEventDetailComponent implements OnInit {
-  event: Event;
-  id: number;
-  participationElement: number[];
+  event!: Event;
+  id!: number;
+  participationElement!: number[];
   isImage: boolean = false;
 
   constructor(
@@ -21,7 +21,7 @@ export class CalendarEventDetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.eventService.setEvents(this.activatedRoute.snapshot.data.events);
+    this.eventService.setEvents(this.activatedRoute.snapshot.data['events']);
     this.activatedRoute.params.subscribe((params: Params) => {
       this.id = +params['id'];
       this.event = this.eventService.getEvent(this.id);

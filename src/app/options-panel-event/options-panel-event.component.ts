@@ -12,9 +12,9 @@ import { OptionsPanelService } from '../options-panel/options.service';
   providers: [OptionsPanelService],
 })
 export class OptionsPanelEventComponent implements OnInit {
-  eventOptions: { favourite: string; participation: string[] };
-  adminEventOptions: string[];
-  index: number;
+  eventOptions!: { favourite: string; participation: string[] };
+  adminEventOptions!: string[];
+  index!: number;
   isLogin: boolean = false;
   isAdminLogin: boolean = false;
 

@@ -10,8 +10,8 @@ import { OptionsPanelService } from './options.service';
   providers: [OptionsPanelService],
 })
 export class OptionsPanelComponent implements OnInit {
-  clientAndUserOptions: { typeOfEvent: string[]; placeOfEvent: string[] };
-  adminOptions: string[];
+  clientAndUserOptions!: { typeOfEvent: string[]; placeOfEvent: string[] };
+  adminOptions!: string[];
   isLogin: boolean = false;
 
   constructor(
