@@ -23,7 +23,7 @@ export class OptionsPanelComponent implements OnInit {
     this.clientAndUserOptions = this.optionsService.getClientAndUserOptions();
     this.adminOptions = this.optionsService.getAdminOptions();
 
-    this.authService.user.subscribe((user) => {
+    this.authService.user.subscribe(user => {
       if (user) {
         this.isLogin = !this.isLogin;
       }

@@ -21,7 +21,7 @@ export class EventsStorageService {
 
   getEvents(): Observable<Event[]> {
     return this.http.get<{ [key: string]: Event }>(this.eventsUrl).pipe(
-      map((responseData) => {
+      map(responseData => {
         const eventsArray = [];
         for (const key in responseData) {
           if (responseData.hasOwnProperty(key)) {
@@ -30,7 +30,7 @@ export class EventsStorageService {
         }
         return eventsArray;
       }),
-      catchError((error) => {
+      catchError(error => {
         this.router.navigateByUrl('/error');
         return EMPTY;
       })
@@ -41,8 +41,8 @@ export class EventsStorageService {
     return this.http
       .post<{ name: string }>(this.eventsUrl, eventSubmitted)
       .pipe(
-        tap((data) => console.log(data)),
-        catchError((error) => {
+        tap(data => console.log(data)),
+        catchError(error => {
           this.router.navigateByUrl('/error');
           return EMPTY;
         })

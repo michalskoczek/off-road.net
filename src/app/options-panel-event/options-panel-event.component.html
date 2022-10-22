@@ -9,8 +9,7 @@
     <li
       *ngFor="let option of eventOptions.participation; let i = index"
       class="options-panel__option"
-      routerLink="/login"
-    >
+      routerLink="/login">
       {{ option }}
     </li>
   </ul>
@@ -21,16 +20,14 @@
     <button
       type="button"
       class="options-panel__option"
-      (click)="onAddToFavourite()"
-    >
+      (click)="onAddToFavourite()">
       {{ eventOptions.favourite }}
     </button>
     <button
       *ngIf="isAdminLogin"
       type="button"
       class="options-panel__option"
-      routerLink="edit"
-    >
+      routerLink="edit">
       {{ adminEventOptions[0] }}
     </button>
     <button type="button" class="options-panel__option" *ngIf="isAdminLogin">
@@ -42,8 +39,7 @@
     <li
       *ngFor="let option of eventOptions.participation; let i = index"
       class="options-panel__option"
-      (click)="onIncreaseParticipation(i)"
-    >
+      (click)="onIncreaseParticipation(i)">
       {{ option }}
     </li>
   </ul>

@@ -20,7 +20,7 @@ export class AuthInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<unknown>> {
     return this.authService.user.pipe(
       take(1),
-      exhaustMap((user) => {
+      exhaustMap(user => {
         if (!user) return next.handle(request);
         const modifiedReq = request.clone({
           params: new HttpParams().set('auth', user.token),

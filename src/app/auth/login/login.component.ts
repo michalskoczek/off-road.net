@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
@@ -8,12 +8,10 @@ import { AuthService } from '../auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['../auth.component.css'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   isLoading: boolean = false;
-  error: string = null;
+  error: string = '';
   constructor(private authService: AuthService, private router: Router) {}
-
-  ngOnInit(): void {}
 
   onSubmit(form: NgForm) {
     if (!form.valid) return;
@@ -24,11 +22,11 @@ export class LoginComponent implements OnInit {
     this.isLoading = true;
 
     this.authService.signin(email, password).subscribe({
-      next: (res) => {
+      next: res => {
         this.isLoading = false;
         this.router.navigate(['/calendar']);
       },
-      error: (errorMessage) => {
+      error: errorMessage => {
         this.error = errorMessage;
         this.isLoading = false;
       },

@@ -11,8 +11,7 @@
         #loginForm="ngForm"
         (ngSubmit)="onSubmit(loginForm)"
         *ngIf="!isLoading"
-        class="form-container"
-      >
+        class="form-container">
         <div class="form-group">
           <label for="email">Email</label>
           <input
@@ -22,12 +21,10 @@
             class="form-control"
             required
             email
-            #email="ngModel"
-          />
+            #email="ngModel" />
           <div
             [hidden]="email.valid || email.pristine"
-            class="alert alert-danger alert-info"
-          >
+            class="alert alert-danger alert-info">
             Email jest wymagany
           </div>
         </div>
@@ -40,20 +37,17 @@
             class="form-control"
             required
             minlength="8"
-            #password="ngModel"
-          />
+            #password="ngModel" />
           <div
             [hidden]="password.valid || password.pristine"
-            class="alert alert-danger alert-info"
-          >
+            class="alert alert-danger alert-info">
             Hasło jest wymagane
           </div>
         </div>
         <button
           class="button-next"
           type="submit"
-          [disabled]="!loginForm.form.valid"
-        >
+          [disabled]="!loginForm.form.valid">
           Zaloguj
         </button>
       </form>

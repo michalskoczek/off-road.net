@@ -30,7 +30,7 @@ export class OptionsPanelEventComponent implements OnInit {
     this.eventOptions = this.optionsService.getClientAndUserEventOptions();
     this.adminEventOptions = this.optionsService.getAdminEventOptions();
 
-    this.authService.user.subscribe((user) => {
+    this.authService.user.subscribe(user => {
       if (user) {
         this.isLogin = !this.isLogin;
       }

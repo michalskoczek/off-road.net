@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { EventService } from './event.service';
 
 @Component({
@@ -7,8 +7,4 @@ import { EventService } from './event.service';
   styleUrls: ['./calendar.component.css'],
   providers: [EventService],
 })
-export class CalendarComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-}
+export class CalendarComponent {}
