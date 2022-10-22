@@ -1,13 +1,13 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
-import { CalendarEventFormComponent } from '../calendar-event-form/calendar-event-form.component';
-import { CanDeactivateGuard } from '../calendar-event-form/can-deactivate-guard.service';
-import { CalendarEventDetailComponent } from './calendar-event/calendar-event-detail/calendar-event-detail.component';
-import { CalendarEventComponent } from './calendar-event/calendar-event.component';
-import { CalendarListComponent } from './calendar-list/calendar-list.component';
-import { CalendarListResolver } from './calendar-list/calendar-list.resolver';
-import { CalendarComponent } from './calendar.component';
+import {CalendarEventFormComponent} from '../calendar-event-form/calendar-event-form.component';
+import {CanDeactivateGuard} from '../calendar-event-form/can-deactivate-guard.service';
+import {CalendarEventDetailComponent} from './calendar-event/calendar-event-detail/calendar-event-detail.component';
+import {CalendarEventComponent} from './calendar-event/calendar-event.component';
+import {CalendarListComponent} from './calendar-list/calendar-list.component';
+import {CalendarListResolver} from './calendar-list/calendar-list.resolver';
+import {CalendarComponent} from './calendar.component';
 
 const routes: Routes = [
   {

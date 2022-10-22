@@ -5,7 +5,7 @@
 .calendar-months {
   width: 65%;
   text-align: center;
-  font: 600 15px/1.5 "Open Sans", sans-serif;
+  font: 600 15px/1.5 'Open Sans', sans-serif;
   border-bottom: 2px solid rgb(251, 174, 19);
   margin: 10px auto 5px auto;
   padding: 0 0 5px 0;
@@ -36,7 +36,7 @@
 .calendar-details p {
   margin: 0;
   text-align: center;
-  font: 13px "Open Sans", sans-serif;
+  font: 13px 'Open Sans', sans-serif;
 }
 
 .calendar-details .calendar-term {
@@ -61,7 +61,7 @@
 @media (min-width: 768px) {
   .calendar-months {
     width: 40%;
-    font: 600 18px/1.5 "Open Sans", sans-serif;
+    font: 600 18px/1.5 'Open Sans', sans-serif;
     margin: 10px auto 15px auto;
   }
 
@@ -84,7 +84,7 @@
   }
 
   .calendar-details p {
-    font: 15px "Open Sans", sans-serif;
+    font: 15px 'Open Sans', sans-serif;
   }
 
   .calendar-details .calendar-term {

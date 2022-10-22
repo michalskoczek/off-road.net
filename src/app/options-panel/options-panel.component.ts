@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth/auth.service';
+import {Component, OnInit} from '@angular/core';
+import {AuthService} from '../auth/auth.service';
 
-import { OptionsPanelService } from './options.service';
+import {OptionsPanelService} from './options.service';
 
 @Component({
   selector: 'app-options-panel',
@@ -10,7 +10,7 @@ import { OptionsPanelService } from './options.service';
   providers: [OptionsPanelService],
 })
 export class OptionsPanelComponent implements OnInit {
-  clientAndUserOptions!: { typeOfEvent: string[]; placeOfEvent: string[] };
+  clientAndUserOptions!: {typeOfEvent: string[]; placeOfEvent: string[]};
   adminOptions!: string[];
   isLogin: boolean = false;
 

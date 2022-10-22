@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
-import { Event } from '../shared/event.model';
+import {Injectable} from '@angular/core';
+import {Subject} from 'rxjs';
+import {Event} from '../shared/event.model';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class EventService {
   eventsChanged = new Subject<Event[]>();
 

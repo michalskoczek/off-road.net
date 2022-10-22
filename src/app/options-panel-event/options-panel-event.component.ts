@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { AuthService } from '../auth/auth.service';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Params, Router} from '@angular/router';
+import {AuthService} from '../auth/auth.service';
 
-import { EventService } from '../calendar/event.service';
-import { OptionsPanelService } from '../options-panel/options.service';
+import {EventService} from '../calendar/event.service';
+import {OptionsPanelService} from '../options-panel/options.service';
 
 @Component({
   selector: 'app-options-panel-event',
@@ -12,7 +12,7 @@ import { OptionsPanelService } from '../options-panel/options.service';
   providers: [OptionsPanelService],
 })
 export class OptionsPanelEventComponent implements OnInit {
-  eventOptions!: { favourite: string; participation: string[] };
+  eventOptions!: {favourite: string; participation: string[]};
   adminEventOptions!: string[];
   index!: number;
   isLogin: boolean = false;

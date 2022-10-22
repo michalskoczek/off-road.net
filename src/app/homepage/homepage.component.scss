@@ -27,7 +27,7 @@
 }
 
 .calendar-container {
-  background: url("../../assets/calendar-hp.jpg") no-repeat 50% 50%;
+  background: url('../../assets/calendar-hp.jpg') no-repeat 50% 50%;
   background-size: 130%;
 }
 
@@ -36,7 +36,7 @@
 }
 
 .auto-services-container {
-  background: url("../../assets/service-hp.jpg") no-repeat 50% 50%;
+  background: url('../../assets/service-hp.jpg') no-repeat 50% 50%;
   background-size: 130%;
 }
 
@@ -45,7 +45,7 @@
 }
 
 .stores-container {
-  background: url("../../assets/shop-hp.jpg") no-repeat 20% 20%;
+  background: url('../../assets/shop-hp.jpg') no-repeat 20% 20%;
   background-size: 130%;
 }
 
@@ -54,7 +54,7 @@
 }
 
 .blogs-container {
-  background: url("../../assets//blog-hp.jpg") no-repeat 20% 20%;
+  background: url('../../assets//blog-hp.jpg') no-repeat 20% 20%;
   background-size: 130%;
 }
 
@@ -66,7 +66,7 @@
   position: absolute;
   bottom: 2%;
   left: 7%;
-  font: 400 18px "Open Sans", sans-serif;
+  font: 400 18px 'Open Sans', sans-serif;
   letter-spacing: 1px;
   color: #fff;
   padding: 5px 20px;
@@ -93,7 +93,7 @@
     position: absolute;
     bottom: 0;
     left: 5%;
-    font: 400 18px "Open Sans", sans-serif;
+    font: 400 18px 'Open Sans', sans-serif;
     letter-spacing: 1px;
     color: #fff;
     background-color: rgba(255, 162, 23);

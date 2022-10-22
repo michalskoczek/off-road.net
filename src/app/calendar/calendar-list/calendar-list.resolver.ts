@@ -1,14 +1,14 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {
   Resolve,
   RouterStateSnapshot,
   ActivatedRouteSnapshot,
 } from '@angular/router';
-import { Observable } from 'rxjs';
+import {Observable} from 'rxjs';
 
-import { Event } from 'src/app/shared/event.model';
+import {Event} from 'src/app/shared/event.model';
 
-import { EventsStorageService } from '../events-storage.service';
+import {EventsStorageService} from '../events-storage.service';
 
 @Injectable({
   providedIn: 'root',

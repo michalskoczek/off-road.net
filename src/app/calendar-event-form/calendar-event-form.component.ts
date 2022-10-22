@@ -1,11 +1,11 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { EventService } from '../calendar/event.service';
-import { Event } from '../shared/event.model';
-import { CanComponentDeactivate } from './can-deactivate-guard.service';
+import {HttpClient} from '@angular/common/http';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {ActivatedRoute, Params, Router} from '@angular/router';
+import {Observable} from 'rxjs';
+import {EventService} from '../calendar/event.service';
+import {Event} from '../shared/event.model';
+import {CanComponentDeactivate} from './can-deactivate-guard.service';
 
 @Component({
   selector: 'app-calendar-event-form',
@@ -100,7 +100,7 @@ export class CalendarEventFormComponent
       this.changesSaved = true;
     } else {
       this.http
-        .post<{ name: string }>(
+        .post<{name: string}>(
           'https://off-road-net-default-rtdb.europe-west1.firebasedatabase.app/events.json',
           eventSubmitted
         )

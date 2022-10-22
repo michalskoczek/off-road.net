@@ -1,10 +1,10 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, throwError } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
-import { User } from './user.model';
-import { Router } from '@angular/router';
-import { environment } from '../../environments/environment';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {BehaviorSubject, Observable, throwError} from 'rxjs';
+import {catchError, tap} from 'rxjs/operators';
+import {User} from './user.model';
+import {Router} from '@angular/router';
+import {environment} from '../../environments/environment';
 
 interface AuthResponseData {
   idToken: string;
