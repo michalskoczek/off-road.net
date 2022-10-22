@@ -7,7 +7,7 @@ import { Event } from '../../../shared/event.model';
 @Component({
   selector: 'app-calendar-event-detail',
   templateUrl: './calendar-event-detail.component.html',
-  styleUrls: ['./calendar-event-detail.component.css'],
+  styleUrls: ['./calendar-event-detail.component.scss'],
 })
 export class CalendarEventDetailComponent implements OnInit {
   event!: Event;

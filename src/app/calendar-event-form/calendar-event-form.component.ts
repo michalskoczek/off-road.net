@@ -10,7 +10,7 @@ import { CanComponentDeactivate } from './can-deactivate-guard.service';
 @Component({
   selector: 'app-calendar-event-form',
   templateUrl: './calendar-event-form.component.html',
-  styleUrls: ['./calendar-event-form.component.css'],
+  styleUrls: ['./calendar-event-form.component.scss'],
 })
 export class CalendarEventFormComponent
   implements OnInit, CanComponentDeactivate
