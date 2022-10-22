@@ -8,7 +8,7 @@ import { OptionsPanelService } from '../options-panel/options.service';
 @Component({
   selector: 'app-options-panel-event',
   templateUrl: './options-panel-event.component.html',
-  styleUrls: ['../options-panel/options-panel.component.css'],
+  styleUrls: ['../options-panel/options-panel.component.scss'],
   providers: [OptionsPanelService],
 })
 export class OptionsPanelEventComponent implements OnInit {
