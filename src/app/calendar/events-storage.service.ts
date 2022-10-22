@@ -1,14 +1,14 @@
-import { HttpClient, HttpParams, HttpResponseBase } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import {HttpClient, HttpParams, HttpResponseBase} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Router} from '@angular/router';
 
-import { EMPTY, Observable, throwError } from 'rxjs';
-import { catchError, exhaustMap, map, take, tap } from 'rxjs/operators';
-import { AuthService } from '../auth/auth.service';
+import {EMPTY, Observable, throwError} from 'rxjs';
+import {catchError, exhaustMap, map, take, tap} from 'rxjs/operators';
+import {AuthService} from '../auth/auth.service';
 
-import { Event } from '../shared/event.model';
+import {Event} from '../shared/event.model';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class EventsStorageService {
   private eventsUrl: string =
     'https://off-road-net-default-rtdb.europe-west1.firebasedatabase.app/events.json';
@@ -20,12 +20,12 @@ export class EventsStorageService {
   ) {}
 
   getEvents(): Observable<Event[]> {
-    return this.http.get<{ [key: string]: Event }>(this.eventsUrl).pipe(
+    return this.http.get<{[key: string]: Event}>(this.eventsUrl).pipe(
       map(responseData => {
         const eventsArray = [];
         for (const key in responseData) {
           if (responseData.hasOwnProperty(key)) {
-            eventsArray.push({ ...responseData[key], id: key });
+            eventsArray.push({...responseData[key], id: key});
           }
         }
         return eventsArray;
@@ -37,16 +37,14 @@ export class EventsStorageService {
     );
   }
 
-  postEvent(eventSubmitted: any): Observable<{ name: string }> {
-    return this.http
-      .post<{ name: string }>(this.eventsUrl, eventSubmitted)
-      .pipe(
-        tap(data => console.log(data)),
-        catchError(error => {
-          this.router.navigateByUrl('/error');
-          return EMPTY;
-        })
-      );
+  postEvent(eventSubmitted: any): Observable<{name: string}> {
+    return this.http.post<{name: string}>(this.eventsUrl, eventSubmitted).pipe(
+      tap(data => console.log(data)),
+      catchError(error => {
+        this.router.navigateByUrl('/error');
+        return EMPTY;
+      })
+    );
   }
 
   private handleError(err: any): Observable<never> {

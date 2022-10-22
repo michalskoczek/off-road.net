@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { AutoServicesComponent } from './auto-services.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {AutoServicesComponent} from './auto-services.component';
 
 const routes: Routes = [
   {

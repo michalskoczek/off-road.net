@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
-import { AdminOptions, Options } from './options-panel.model';
+import {Injectable} from '@angular/core';
+import {AdminOptions, Options} from './options-panel.model';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class OptionsPanelService {
   private clientAndUserOptions: Options = {
     optionsName: {

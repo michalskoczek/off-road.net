@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Event } from 'src/app/shared/event.model';
-import { EventService } from '../event.service';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {Event} from 'src/app/shared/event.model';
+import {EventService} from '../event.service';
 
 @Component({
   selector: 'app-calendar-list',
