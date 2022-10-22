@@ -6,7 +6,7 @@ import { EventService } from '../event.service';
 @Component({
   selector: 'app-calendar-list',
   templateUrl: './calendar-list.component.html',
-  styleUrls: ['./calendar-list.component.css'],
+  styleUrls: ['./calendar-list.component.scss'],
 })
 export class CalendarListComponent implements OnInit {
   events!: Event[];
