@@ -7,8 +7,7 @@
         <button
           class="back-to-list"
           routerLink="/calendar"
-          (click)="onResetParticipation()"
-        >
+          (click)="onResetParticipation()">
           wstecz
         </button>
         <h3 class="event-title">{{ event.name }}</h3>
@@ -26,7 +25,7 @@
       </div>
       <div class="col-8 col-md-8 event-details__properties">
         <p>{{ event.location }}</p>
-        <p>{{ event.date | date: "EEEE, dd.MM.YYYY" }}</p>
+        <p>{{ event.date | date: 'EEEE, dd.MM.YYYY' }}</p>
         <p>{{ event.type }}</p>
         <p>{{ event.organizer }}</p>
         <p>{{ event.cost }}</p>
@@ -42,8 +41,7 @@
           *ngIf="isImage"
           src="{{ event.image }}"
           alt="off-road"
-          class="event-img"
-        />
+          class="event-img" />
       </div>
     </div>
     <div class="row event-details">

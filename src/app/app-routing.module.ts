@@ -12,24 +12,23 @@ const appRoutes: Routes = [
   {
     path: 'calendar',
     loadChildren: () =>
-      import('./calendar/calendar.module').then((m) => m.CalendarModule),
+      import('./calendar/calendar.module').then(m => m.CalendarModule),
   },
   {
     path: 'services',
     loadChildren: () =>
       import('./auto-services/auto-services.module').then(
-        (m) => m.AutoServicesModule
+        m => m.AutoServicesModule
       ),
   },
   {
     path: 'blogs',
-    loadChildren: () =>
-      import('./blogs/blogs.module').then((m) => m.BlogsModule),
+    loadChildren: () => import('./blogs/blogs.module').then(m => m.BlogsModule),
   },
   {
     path: 'stores',
     loadChildren: () =>
-      import('./stores/stores.module').then((m) => m.StoresModule),
+      import('./stores/stores.module').then(m => m.StoresModule),
   },
 ];
 

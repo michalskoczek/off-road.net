@@ -55,9 +55,7 @@ export class EventService {
 
   increaseParticipation(index: number, participationIndex: number) {
     this.events = this.getSortedEvents();
-    const isFirstTime = this.isParticipation.find(
-      (element) => element === true
-    );
+    const isFirstTime = this.isParticipation.find(element => element === true);
     if (isFirstTime === undefined) {
       this.isParticipation[participationIndex] = true;
       this.events[index].participation[participationIndex] += 1;
@@ -71,7 +69,7 @@ export class EventService {
       this.isParticipation[participationIndex] === false
     ) {
       const indexOfTrue = this.isParticipation.findIndex(
-        (element) => element === true
+        element => element === true
       );
       this.isParticipation[indexOfTrue] = false;
       this.events[index].participation[indexOfTrue] -= 1;

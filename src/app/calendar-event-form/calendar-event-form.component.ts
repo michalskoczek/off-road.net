@@ -104,7 +104,7 @@ export class CalendarEventFormComponent
           'https://off-road-net-default-rtdb.europe-west1.firebasedatabase.app/events.json',
           eventSubmitted
         )
-        .subscribe((responseData) => console.log(responseData));
+        .subscribe(responseData => console.log(responseData));
     }
     this.router.navigateByUrl('/calendar');
   }

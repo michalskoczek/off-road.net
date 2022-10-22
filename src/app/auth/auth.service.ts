@@ -37,7 +37,7 @@ export class AuthService {
       })
       .pipe(
         catchError(this.handleError),
-        tap((resData) => {
+        tap(resData => {
           this.handleAuthUser(
             resData.email,
             resData.localId,
@@ -57,7 +57,7 @@ export class AuthService {
       })
       .pipe(
         catchError(this.handleError),
-        tap((resData) => {
+        tap(resData => {
           this.handleAuthUser(
             resData.email,
             resData.localId,

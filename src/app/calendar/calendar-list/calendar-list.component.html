@@ -10,14 +10,14 @@
   <div class="row calendar-event" *ngFor="let event of events; let i = index">
     <div class="col-md-12">
       <p class="calendar-months" *ngIf="displayMonths(event, i)">
-        {{ event.date | date: "LLLL" }} {{ event.date | date: "YYYY" }}
+        {{ event.date | date: 'LLLL' }} {{ event.date | date: 'YYYY' }}
       </p>
     </div>
 
     <a class="col-12 col-md-11 calendar-details" [routerLink]="['event', i]">
       <div class="calendar-term">
-        <p class="calendar-date">{{ event.date | date: "dd.MM" }}</p>
-        <p class="calendar-day">{{ event.date | date: "EE" | uppercase }}</p>
+        <p class="calendar-date">{{ event.date | date: 'dd.MM' }}</p>
+        <p class="calendar-day">{{ event.date | date: 'EE' | uppercase }}</p>
       </div>
       <p class="calendar-name">{{ event.name }}</p>
       <p class="calendar-localization">{{ event.location }}</p>
